@@ -22,7 +22,7 @@ object ProjectProperties {
         const val JVM_TARGET = "17"
         const val VERSION_CODE = 11
         const val VERSION_NAME = "1.1.5"
-        val JAVA_VERSION = JavaVersion.VERSION_1_8
+        val JAVA_VERSION = JavaVersion.VERSION_17
     }
 
     object NameSpace {
