@@ -7,4 +7,10 @@
     <string name="login_text">로그인</string>
     <string name="or">또는</string>
     <string name="sign_up_text">회원가입</string>
+    <string name="back_page_text">돌아가기</string>
+    <string name="change_text">변경</string>
+    <string name="change_password_text">비밀번호 변경</string>
+    <string name="new_password">새 비밀번호</string>
+    <string name="check_new_password_text">새 비밀번호 확인</string>
+    <string name="not_match_password">비밀번호가 일치하지 않습니다.</string>
 </resources>
