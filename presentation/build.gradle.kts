@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.teamgrapefruit.presentation"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 33
@@ -56,4 +56,6 @@ dependencies {
     implementation(Dependency.Compose.COMPOSE_MATERIAL)
     implementation(Dependency.Compose.COMPOSE_MATERIAL3)
     implementation(Dependency.Compose.COMPOSE_PREVIEW)
+
+    implementation("androidx.navigation:navigation-compose:2.5.3")
 }
