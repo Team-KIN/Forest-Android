@@ -6,11 +6,11 @@ plugins {
 
 android {
     namespace = "com.teamgrapefruit.presentation"
-    compileSdk = 34
+    compileSdk = 33
 
     defaultConfig {
         minSdk = 33
-        targetSdk = 33
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
