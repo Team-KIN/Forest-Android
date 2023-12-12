@@ -13,4 +13,5 @@
     <string name="new_password">새 비밀번호</string>
     <string name="check_new_password_text">새 비밀번호 확인</string>
     <string name="not_match_password">비밀번호가 일치하지 않습니다.</string>
+    <string name="nickname_text">닉네임</string>
 </resources>
