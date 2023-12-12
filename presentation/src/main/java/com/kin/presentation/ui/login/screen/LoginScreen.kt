@@ -1,4 +1,4 @@
-package com.kin.presentation.ui.auth.screen
+package com.kin.presentation.ui.login.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -11,11 +11,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kin.presentation.ui.auth.component.EmailTextField
-import com.kin.presentation.ui.auth.component.LoginButton
-import com.kin.presentation.ui.auth.component.OrSignUp
-import com.kin.presentation.ui.auth.component.PasswordTextField
-import com.kin.presentation.ui.auth.component.Title
+import com.kin.presentation.ui.login.component.EmailTextField
+import com.kin.presentation.ui.login.component.LoginButton
+import com.kin.presentation.ui.login.component.OrSignUp
+import com.kin.presentation.ui.login.component.PasswordTextField
+import com.kin.presentation.ui.login.component.Title
 import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable

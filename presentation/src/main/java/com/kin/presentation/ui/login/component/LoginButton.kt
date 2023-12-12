@@ -1,4 +1,4 @@
-package com.kin.presentation.ui.auth.component
+package com.kin.presentation.ui.login.component
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width

@@ -13,6 +13,8 @@ object LightColor: ColorTheme() {
     override val FOCUS = Color(0xFF007AF5)
 
     override val WHITE = Color(0xFFFFFFFF)
-
     override val BLACK = Color(0xFF000000)
+    override val TRANSPARENCY = Color(0x00FFFFFF)
+    override val GRAY = Color(0xFFDCE1E6)
+    override val GRAY2 = Color(0xFF8A9199)
 }
