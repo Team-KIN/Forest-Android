@@ -1,4 +1,4 @@
-package com.kin.presentation.ui.component
+package com.kin.presentation.ui.component.back_page
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box

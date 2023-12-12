@@ -1,4 +1,4 @@
-package com.kin.presentation.ui.auth.component
+package com.kin.presentation.ui.login.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

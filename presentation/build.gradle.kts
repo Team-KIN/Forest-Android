@@ -1,18 +1,21 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
+    id (Dependency.Gradle.APPLICATION)
+    id (Dependency.Gradle.KOTLIN)
+    kotlin (Dependency.Gradle.KAPT)
 }
 
 android {
     namespace = "com.teamgrapefruit.presentation"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 33
+        targetSdk = 33
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -37,23 +40,34 @@ android {
     buildFeatures {
         compose = true
     }
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
 }
 
 dependencies {
-    implementation(project(":data"))
     implementation(project(":domain"))
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.10.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    //aac
+    implementation(Dependency.AndroidX.APPCOMPAT)
+    implementation(Dependency.AndroidX.CORE_KTX)
+    implementation(Dependency.AndroidX.LIFECYCLE)
+    implementation(Dependency.Navigation.NAVIGATION)
 
+    //compose
     implementation(Dependency.Compose.ACTIVITY_COMPOSE)
     implementation(Dependency.Compose.COMPOSE)
     implementation(Dependency.Compose.COMPOSE_TOOLING)
     implementation(Dependency.Compose.COMPOSE_MATERIAL)
     implementation(Dependency.Compose.COMPOSE_MATERIAL3)
     implementation(Dependency.Compose.COMPOSE_PREVIEW)
+
+    //junit
+    testImplementation(Dependency.Test.JUNIT)
+    androidTestImplementation(Dependency.Test.ANDROID_JUNIT)
+    androidTestImplementation(Dependency.Test.COMPOSE_JUNIT)
+    debugImplementation(Dependency.Compose.COMPOSE_TOOLING)
+    debugImplementation(Dependency.Test.COMPOSE_MANIFEST)
 }
