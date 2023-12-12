@@ -43,8 +43,6 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
 
-    implementation("androidx.navigation:navigation-compose:2.7.5")
-
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.compose.material3:material3")
@@ -58,4 +56,5 @@ dependencies {
     implementation(Dependency.Compose.COMPOSE_MATERIAL)
     implementation(Dependency.Compose.COMPOSE_MATERIAL3)
     implementation(Dependency.Compose.COMPOSE_PREVIEW)
+    implementation(Dependency.Navigation.NAVIGATION)
 }
