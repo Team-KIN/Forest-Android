@@ -21,6 +21,7 @@ import com.kin.presentation.ui.change_password.component.CheckNewPasswordTextFie
 import com.kin.presentation.ui.change_password.component.NewPasswordTextField
 import com.kin.presentation.ui.component.back_page.BackPage
 
+
 @Composable
 fun ChangePasswordScreen() {
     Box(
