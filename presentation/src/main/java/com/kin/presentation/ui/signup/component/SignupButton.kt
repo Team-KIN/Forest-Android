@@ -32,7 +32,8 @@ fun SignupButton(
         Text(
             text = stringResource(R.string.sign_up_text),
             color = LightColor.WHITE,
-            fontSize = 18.sp)
+            fontSize = 18.sp
+        )
     }
 }
 

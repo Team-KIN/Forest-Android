@@ -48,8 +48,7 @@ fun EmailTextField() {
                 text = stringResource(R.string.not_found_email),
                 color = LightColor.ERROR,
                 fontSize = 12.sp,
-                modifier = Modifier
-                    .padding(0.dp, 12.dp)
+                modifier = Modifier.padding(0.dp, 12.dp)
             )
         }
     }

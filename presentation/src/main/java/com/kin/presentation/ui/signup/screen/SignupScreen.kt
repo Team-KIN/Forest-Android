@@ -55,9 +55,7 @@ fun SignupScreen(){
                 Spacer(modifier = Modifier.height(34.dp))
                 PasswordCheckTextField()
                 Spacer(modifier = Modifier.height(46.dp))
-                SignupButton {
-
-                }
+                SignupButton {}
             }
         }
     }

@@ -37,7 +37,7 @@ fun PasswordTextFeild() {
 
             TextField(
                 value = text,
-                onValueChange = {text = it},
+                onValueChange = { text = it },
                 modifier = Modifier.fillMaxWidth(),
                 colors = TextFieldDefaults.outlinedTextFieldColors()
             )
