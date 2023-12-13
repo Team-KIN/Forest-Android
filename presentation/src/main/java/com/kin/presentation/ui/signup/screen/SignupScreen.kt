@@ -14,7 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kin.presentation.ui.component.BackPage
+import com.kin.presentation.ui.component.back_page.BackPage
 import com.kin.presentation.ui.signup.component.EmailTextField
 import com.kin.presentation.ui.signup.component.NicknameTextField
 import com.kin.presentation.ui.signup.component.PasswordCheckTextField
