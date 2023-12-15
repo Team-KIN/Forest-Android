@@ -16,4 +16,5 @@ abstract class ColorTheme {
     abstract val TRANSPARENCY: Color
     abstract val GRAY: Color
     abstract val GRAY2: Color
+    abstract val GRAY3: Color
 }

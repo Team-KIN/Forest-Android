@@ -17,4 +17,5 @@ object LightColor: ColorTheme() {
     override val TRANSPARENCY = Color(0x00FFFFFF)
     override val GRAY = Color(0xFFDCE1E6)
     override val GRAY2 = Color(0xFF8A9199)
+    override val GRAY3 = Color(0xFFBEC4CA)
 }
