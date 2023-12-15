@@ -22,4 +22,17 @@
     <string name="check_email_number">이메일 인증 번호</string>
     <string name="no_send_email">메일을 받지 못했나요?</string>
     <string name="check">인증</string>
+    <string name="group_name_text">나무 이름</string>
+    <string name="group_target_text">키우는 목적</string>
+    <string name="letter_condition_text">20자 이내, 특문 불가(공백 제외)</string>
+    <string name="last_target_text">나무의 최종 목표</string>
+    <string name="next_text">다음으로</string>
+    <string name="status_text">공개 상태</string>
+    <string name="public_status_text">공개</string>
+    <string name="private_status_text">비공개</string>
+    <string name="create_group_text">새 나무 심기</string>
+    <string name="join_private_group_text">비밀의 숲에 함께하기</string>
+    <string name="insert_code_text">참여 코드 입력</string>
+    <string name="not_code_text">올바르지 않은 코드입니다.</string>
+    <string name="join_text">참여하기</string>
 </resources>
