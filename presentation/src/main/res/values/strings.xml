@@ -18,6 +18,10 @@
     <string name="group_text">산림</string>
     <string name="my_group_text">텐트</string>
     <string name="my_page_text">주민 정보</string>
+    <string name="check_email">이메일 인증</string>
+    <string name="check_email_number">이메일 인증 번호</string>
+    <string name="no_send_email">메일을 받지 못했나요?</string>
+    <string name="check">인증</string>
     <string name="group_name_text">나무 이름</string>
     <string name="group_target_text">키우는 목적</string>
     <string name="letter_condition_text">20자 이내, 특문 불가(공백 제외)</string>
