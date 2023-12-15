@@ -38,8 +38,7 @@ fun GroupTargetTextField() {
             TextField(
                 value = text,
                 onValueChange = { text = it },
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 colors = TextFieldDefaults.outlinedTextFieldColors()
             )
 
@@ -47,8 +46,7 @@ fun GroupTargetTextField() {
                 text = stringResource(R.string.last_target_text),
                 color = LightColor.GRAY3,
                 fontSize = 12.sp,
-                modifier = Modifier
-                    .padding(0.dp, 12.dp)
+                modifier = Modifier.padding(0.dp, 12.dp)
             )
         }
     }
