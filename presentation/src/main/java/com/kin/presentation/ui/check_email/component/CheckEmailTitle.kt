@@ -7,6 +7,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.kin.presentation.ui.theme.color.LightColor
 import com.teamgrapefruit.presentation.R
 
 @Composable
@@ -15,7 +16,8 @@ fun CheckEmailTitle(){
         Text(
             text = stringResource(R.string.check_email),
             fontSize = 24.sp,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            color = LightColor.BLACK
         )
     }
 
