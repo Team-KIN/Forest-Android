@@ -55,7 +55,8 @@ fun GroupStatus() {
             ) {
                 Text(
                     text = item,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    color = LightColor.BLACK
                 )
                 RadioButton(
                     selected = isSelectedItem(item),
