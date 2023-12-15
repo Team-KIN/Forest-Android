@@ -27,4 +27,8 @@
     <string name="public_status_text">공개</string>
     <string name="private_status_text">비공개</string>
     <string name="create_group_text">새 나무 심기</string>
+    <string name="join_private_group_text">비밀의 숲에 함께하기</string>
+    <string name="insert_code_text">참여 코드 입력</string>
+    <string name="not_code_text">올바르지 않은 코드입니다.</string>
+    <string name="join_text">참여하기</string>
 </resources>
