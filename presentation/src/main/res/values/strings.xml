@@ -38,4 +38,5 @@
     <string name="group_description">나무 설명</string>
     <string name="create_group_text">나무 심기</string>
     <string name="insert_description">이 나무에 대해 알려주세요</string>
+    <string name="together_group_text">함께하기</string>
 </resources>
