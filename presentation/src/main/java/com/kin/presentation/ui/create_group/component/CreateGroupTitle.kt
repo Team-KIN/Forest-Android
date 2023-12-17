@@ -12,7 +12,7 @@ import com.teamgrapefruit.presentation.R
 @Composable
 fun CreateGroupTitle() {
     Text(
-        text = stringResource(R.string.create_group_text),
+        text = stringResource(R.string.create_new_group_text),
         fontSize = 18.sp,
         fontWeight = FontWeight.Bold,
         color = LightColor.BLACK
