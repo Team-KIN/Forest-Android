@@ -24,9 +24,7 @@ fun Divider(){
             ),
         verticalArrangement = Arrangement.spacedBy(0.dp, Alignment.CenterVertically),
         horizontalAlignment = Alignment.Start
-    ){
-
-    }
+    ){}
 }
 
 @Preview
