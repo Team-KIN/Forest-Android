@@ -43,4 +43,6 @@
     <string name="together_group_text">함께하기</string>
     <string name="group_todo">그룹 Todo</string>
     <string name="private_todo">개인 Todo</string>
+    <string name="logout_text">로그아웃</string>
+    <string name="withdrawal_text">회원탈퇴</string>
 </resources>
