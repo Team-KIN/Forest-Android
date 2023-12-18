@@ -11,6 +11,10 @@ abstract class ColorTheme {
 
     abstract val FOCUS: Color
 
+    abstract val GROUPTODO: Color
+
+    abstract val PRIVATETODO: Color
+
     abstract val WHITE: Color
     abstract val BLACK: Color
     abstract val TRANSPARENCY: Color
