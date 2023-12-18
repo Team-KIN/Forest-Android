@@ -21,7 +21,6 @@ fun GroupList() {
             }
         }
     }
-
 }
 
 @Preview

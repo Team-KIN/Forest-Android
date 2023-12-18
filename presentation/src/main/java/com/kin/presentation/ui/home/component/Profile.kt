@@ -31,13 +31,12 @@ fun Profile() {
                 width = 1.dp,
                 color = LightColor.PRIMARY,
                 shape = CircleShape
-                )
+            )
         ){
             Image(
                 painter = painterResource(R.drawable.profile_image),
                 contentDescription = "profile image",
-                modifier = Modifier
-                    .clip(CircleShape)
+                modifier = Modifier.clip(CircleShape)
             )
         }
 
@@ -56,7 +55,7 @@ fun Profile() {
             modifier = Modifier.padding(
                 start = 52.dp,
                 top = 20.dp
-                )
+            )
         )
     }
 }
