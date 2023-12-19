@@ -9,7 +9,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.teamgrapefruit.presentation.R
+import com.kin.presentation.R
 
 @Composable
 fun Title() {
