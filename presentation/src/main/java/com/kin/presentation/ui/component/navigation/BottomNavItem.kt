@@ -1,6 +1,6 @@
 package com.kin.presentation.ui.component.navigation
 
-import com.teamgrapefruit.presentation.R
+import com.kin.presentation.R
 
 sealed class BottomNavItem(
     val title: Int, val icon: Int, val screenRoute: String
