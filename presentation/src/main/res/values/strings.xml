@@ -52,4 +52,10 @@
     <string name="dropout">강퇴</string>
     <string name="logout_text">로그아웃</string>
     <string name="withdrawal_text">회원탈퇴</string>
+    <string name="group_setting_text">그룹 설정</string>
+    <string name="group_goal_text">키우는 목적</string>
+    <string name="group_explain_text">나무 설명</string>
+    <string name="group_member_text">이 나무를 키우는 사람들</string>
+    <string name="copy_code_text">가입 코드 복사</string>
+    <string name="group_delete_text">그룹 삭제하기</string>
 </resources>
