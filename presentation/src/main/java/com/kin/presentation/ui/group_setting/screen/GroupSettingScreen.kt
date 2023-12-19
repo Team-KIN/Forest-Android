@@ -48,11 +48,11 @@ fun GroupSettingScreen(){
             ){
                 Spacer(modifier = Modifier.height(24.dp))
                 GroupGoalEditButton {}
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(1.dp))
                 GroupGoalTextField(text = "공부 하려고")
                 Spacer(modifier = Modifier.height(28.dp))
                 GroupExplainEditButton {}
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(1.dp))
                 GroupExplainTextField(text = "이 나무는 모시깽이하는 나무인데\n" +
                         "과연 이놈이 침엽수인지 활엽수인지\n" +
                         "저로서는 도저히 알 수가 없는 그러한 그런\n" +
