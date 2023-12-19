@@ -1,11 +1,12 @@
 plugins {
-    id (Dependency.Gradle.APPLICATION)
+    id (Dependency.Gradle.LIBRARY)
     id (Dependency.Gradle.KOTLIN)
     kotlin (Dependency.Gradle.KAPT)
+    id (Dependency.Google.HILT_PLUGIN)
 }
 
 android {
-    namespace = "com.teamgrapefruit.presentation"
+    namespace = "com.kin.presentation"
     compileSdk = 34
 
     defaultConfig {
@@ -70,4 +71,27 @@ dependencies {
     androidTestImplementation(Dependency.Test.COMPOSE_JUNIT)
     debugImplementation(Dependency.Compose.COMPOSE_TOOLING)
     debugImplementation(Dependency.Test.COMPOSE_MANIFEST)
+
+    //retrofit
+    implementation(Dependency.Libraries.RETROFIT)
+    implementation(Dependency.Libraries.RETROFIT_CONVERTER_GSON)
+
+    //okhttp
+    implementation(Dependency.Libraries.OKHTTP)
+    implementation(Dependency.Libraries.OKHTTP_LOGGING_INTERCEPTOR)
+
+    //hilt
+    implementation(Dependency.Google.HILT)
+    kapt(Dependency.Google.HILT_COMPILER)
+
+    //androidTest
+    androidTestImplementation(Dependency.Test.ANDROID_JUNIT)
+    androidTestImplementation(Dependency.Test.ESPRESSO)
+
+    //accompanist
+    implementation(Dependency.Google.ACCOMPANIST)
+    implementation(Dependency.Google.ACCOMPANIST_PERMISSION)
+
+    //preference
+    implementation(Dependency.DataStore.PREFERENCES)
 }
