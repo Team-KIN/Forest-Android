@@ -50,4 +50,6 @@
     <string name="check_dropout_text">잘못 선택한 사람은 없나요? 🫠</string>
     <string name="cancel_text">취소</string>
     <string name="dropout">강퇴</string>
+    <string name="logout_text">로그아웃</string>
+    <string name="withdrawal_text">회원탈퇴</string>
 </resources>
