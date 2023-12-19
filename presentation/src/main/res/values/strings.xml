@@ -43,4 +43,11 @@
     <string name="together_group_text">함께하기</string>
     <string name="group_todo">그룹 Todo</string>
     <string name="private_todo">개인 Todo</string>
+    <string name="group_management_text">그룹원 관리</string>
+    <string name="all_select_text">전부 선택하기</string>
+    <string name="dropout_text">강퇴하기</string>
+    <string name="dropout_check_text">정말 강퇴하실 건가요?</string>
+    <string name="check_dropout_text">잘못 선택한 사람은 없나요? 🫠</string>
+    <string name="cancel_text">취소</string>
+    <string name="dropout">강퇴</string>
 </resources>
