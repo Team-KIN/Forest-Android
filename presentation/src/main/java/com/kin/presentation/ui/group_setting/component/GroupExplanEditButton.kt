@@ -3,8 +3,8 @@ package com.kin.presentation.ui.group_setting.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Text
 import androidx.compose.material.TextButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -17,11 +17,11 @@ import com.kin.presentation.ui.theme.color.LightColor
 import com.teamgrapefruit.presentation.R
 
 @Composable
-fun GroupGoalEditButton(onClick: () -> Unit){
+fun GroupExplainEditButton(onClick: () -> Unit){
     TextButton(onClick = { onClick }) {
         Row {
             Text(
-                text = stringResource(id = R.string.group_goal_text),
+                text = stringResource(id = R.string.group_explain_text),
                 fontSize = 14.sp,
                 fontWeight = FontWeight(400),
                 color = LightColor.GRAY2
@@ -31,12 +31,13 @@ fun GroupGoalEditButton(onClick: () -> Unit){
                 contentDescription = "edit icon",
                 modifier = Modifier.padding(top = 2.dp, start = 4.dp)
             )
+
         }
     }
 }
 
 @Preview
 @Composable
-fun GroupGoalEditButtonPreview(){
-    GroupGoalEditButton {}
+fun GroupExplainEditButtonPreview() {
+    GroupExplainEditButton {}
 }
