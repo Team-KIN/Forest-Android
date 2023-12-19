@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kin.presentation.ui.theme.color.LightColor
-import com.teamgrapefruit.presentation.R
+import com.kin.presentation.R
 
 @Composable
 fun GroupItemList(){
@@ -33,7 +33,7 @@ fun GroupItemList(){
                     shape = RoundedCornerShape(17.dp)
                 ),
             horizontalArrangement = Arrangement.Center,
-            verticalAlignment = androidx.compose.ui.Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = "모여봐요 공부의 숲",
@@ -61,7 +61,7 @@ fun GroupItemList(){
             Spacer(modifier = Modifier.width(4.dp))
             Row(
                 horizontalArrangement = Arrangement.Center,
-                verticalAlignment = androidx.compose.ui.Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(painter = painterResource(id = R.drawable.todo_icon),
                     contentDescription = "Member Icon"

@@ -22,13 +22,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kin.presentation.ui.theme.color.LightColor
-import com.teamgrapefruit.presentation.R
+import com.kin.presentation.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PasswordTextField() {
+fun PasswordTextField(
+    isError: Boolean = false,
+    placeHolder: String,
+    readOnly: Boolean = false,
+    setChangeText: String,
+    singleLine: Boolean = true,
+    onFocusChange: (Boolean) -> Unit = {},
+    onValueChange: (String) -> Unit = {}
+) {
 
     var text by remember { mutableStateOf("") }
+    text = setChangeText
 
     Box(modifier = Modifier.width(320.dp)) {
         Column() {
@@ -38,10 +47,12 @@ fun PasswordTextField() {
                     color = LightColor.SECONDARY,
                     fontSize = 14.sp
                 )
-
                 TextField(
                     value = text,
-                    onValueChange = { text = it },
+                    onValueChange = {
+                        text = it
+                        onValueChange(it)
+                    },
                     modifier = Modifier
                         .fillMaxWidth(),
                     colors = TextFieldDefaults.outlinedTextFieldColors()
@@ -73,5 +84,5 @@ fun PasswordTextField() {
 @Preview
 @Composable
 fun PasswordTextFieldPreview() {
-    PasswordTextField()
+    // PasswordTextField()
 }
