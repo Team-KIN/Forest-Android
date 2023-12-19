@@ -14,7 +14,7 @@ import com.kin.presentation.ui.group_setting.item.GroupMemberItem
 fun GroupMemberList() {
     Box(){
         LazyColumn{
-            items(count = 50){
+            items(count = 8){
                 Spacer(modifier = Modifier.width(8.dp))
                 GroupMemberItem()
             }
