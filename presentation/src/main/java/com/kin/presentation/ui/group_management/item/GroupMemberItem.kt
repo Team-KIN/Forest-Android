@@ -43,7 +43,6 @@ fun GroupMemberItem(onClick: () -> Unit) {
                 contentDescription = "profile image",
                 modifier = Modifier.clip(shape = CircleShape)
             )
-
             Text(
                 text = "홍길동",
                 fontSize = 16.sp,
