@@ -26,6 +26,8 @@ object Versions {
 
     const val PREFERENCES = "1.0.0"
 
+    const val ACCOMPANIST = "0.31.2-alpha"
+
     const val NAVIGATION = "2.6.0"
 
     const val COIL = "2.4.0"
