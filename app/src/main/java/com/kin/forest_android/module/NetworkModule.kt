@@ -3,6 +3,7 @@ package com.kin.forest_android.module
 import com.kin.data.remote.api.login.LoginAPI
 import com.kin.data.util.LoginInterceptor
 import com.kin.data.BuildConfig
+import com.kin.data.remote.api.email.EmailAPI
 import com.kin.data.remote.api.signup.SignupAPI
 import dagger.Module
 import dagger.Provides
@@ -64,5 +65,11 @@ object NetworkModule {
     @Singleton
     fun signupService(retrofit: Retrofit): SignupAPI{
         return retrofit.create(SignupAPI::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun emailService(retrofit: Retrofit): EmailAPI{
+        return retrofit.create(EmailAPI::class.java)
     }
 }

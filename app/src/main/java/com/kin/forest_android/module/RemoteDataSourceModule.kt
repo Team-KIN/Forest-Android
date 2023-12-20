@@ -1,5 +1,7 @@
 package com.kin.forest_android.module
 
+import com.kin.data.remote.datasource.email.SendPhoneNumberDataSource
+import com.kin.data.remote.datasource.email.SendPhoneNumberDataSourceImpl
 import com.kin.data.remote.datasource.login.LoginDataSource
 import com.kin.data.remote.datasource.login.LoginDateSourceImpl
 import com.kin.data.remote.datasource.signup.SignupDataSource
@@ -23,4 +25,9 @@ abstract class RemoteDataSourceModule {
     abstract fun provideSignupDataSource(
         signupDataSourceImpl: SignupDataSourceImpl
     ): SignupDataSource
+
+    @Binds
+    abstract fun provideSendPhoneNumberDataSource(
+        sendPhoneNumberDataSourceImpl: SendPhoneNumberDataSourceImpl
+    ): SendPhoneNumberDataSource
 }
