@@ -1,5 +1,7 @@
 package com.kin.presentation.viewmodel
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kin.domain.model.signup.request.SignupRequestModel
@@ -33,5 +35,21 @@ class SignupViewModel @Inject constructor(
         }.onFailure {
             _signupResponse.value = it.errorHandling()
         }
+    }
+
+    private val _emailData = MutableLiveData<String>()
+    val emailData: LiveData<String> get() = _emailData
+    private val _passwordData = MutableLiveData<String>()
+    val passwordData: LiveData<String> get() = _passwordData
+    private val _nameData = MutableLiveData<String>()
+    val nameData: LiveData<String> get() = _nameData
+    private val _phoneNumber = MutableLiveData<String>()
+    val phoneNumber: LiveData<String> get() = _phoneNumber
+
+    fun registerIdData(email: String, password: String, name: String, phoneNumber: String) =  viewModelScope.launch {
+        _emailData.value = email
+        _passwordData.value = password
+        _nameData.value = name
+        _phoneNumber.value = phoneNumber
     }
 }
