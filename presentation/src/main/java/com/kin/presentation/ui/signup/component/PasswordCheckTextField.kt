@@ -25,7 +25,15 @@ import com.kin.presentation.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PasswordCheckTextField() {
+fun PasswordCheckTextField(
+    isError: Boolean = false,
+    placeHolder: String,
+    readOnly: Boolean = false,
+    setChangeText: String,
+    singleLine: Boolean = true,
+    onFocusChange: (Boolean) -> Unit = {},
+    onValueChange: (String) -> Unit = {}
+) {
 
     var text by remember { mutableStateOf("") }
 
@@ -39,7 +47,10 @@ fun PasswordCheckTextField() {
 
             TextField(
                 value = text,
-                onValueChange ={text = it},
+                onValueChange = {
+                    text = it
+                    onValueChange(it)
+                },
                 modifier = Modifier.fillMaxWidth(),
                 colors = TextFieldDefaults.outlinedTextFieldColors()
             )
@@ -56,6 +67,6 @@ fun PasswordCheckTextField() {
 
 @Preview
 @Composable
-fun PasswordCheckTextFieldPreview(){
+fun PasswordCheckTextFieldPreview() {
     CheckNewPasswordTextField()
 }
