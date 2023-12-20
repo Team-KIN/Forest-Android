@@ -58,4 +58,5 @@
     <string name="group_member_text">이 나무를 키우는 사람들</string>
     <string name="copy_code_text">가입 코드 복사</string>
     <string name="group_delete_text">그룹 삭제하기</string>
+    <string name="phone_number_text">전화번호</string>
 </resources>
