@@ -7,6 +7,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kin.presentation.ui.base.BaseActivity
+import com.kin.presentation.ui.check_email.screen.CheckEmailScreen
 import com.kin.presentation.ui.login.LoginActivity
 import com.kin.presentation.ui.signup.screen.SignupScreen
 import com.kin.presentation.viewmodel.SignupViewModel
@@ -21,8 +22,9 @@ class SignUpActivity: BaseActivity() {
                 context = this,
                 lifecycleScope = lifecycleScope,
                 viewModel = viewModel(LocalContext.current as SignUpActivity),
+                signupViewModel = viewModel(LocalContext.current as SignUpActivity),
                 onSignupButtonClick = {
-
+                    emailCheck()
                 },
                 onBackPageClick = {
                     backPage()
@@ -31,8 +33,19 @@ class SignUpActivity: BaseActivity() {
         }
     }
 
-    private fun signup() {
-
+    private fun emailCheck() {
+        setContent {
+            CheckEmailScreen(
+                context = this,
+                lifecycleScope = lifecycleScope,
+                viewModel = viewModel(LocalContext.current as SignUpActivity),
+                signupViewModel = viewModel(LocalContext.current as SignUpActivity),
+                onEmailCheckButtonClick = {},
+                onBackPageClick = {
+                    backPage()
+                }
+            )
+        }
     }
 
     private fun backPage(){

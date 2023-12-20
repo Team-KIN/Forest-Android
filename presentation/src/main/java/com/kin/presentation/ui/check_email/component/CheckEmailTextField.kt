@@ -26,8 +26,17 @@ import com.kin.presentation.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CheckEmailTextField() {
+fun CheckEmailTextField(
+    isError: Boolean = false,
+    placeHolder: String,
+    readOnly: Boolean = false,
+    setTextChangeText: String,
+    singleLine: Boolean = true,
+    onFocusChange: (Boolean) -> Unit = {},
+    onValueChange: (String) -> Unit = {}
+) {
     var text by remember { mutableStateOf("") }
+    text = setTextChangeText
 
     Box(modifier = Modifier.width(320.dp)) {
         Column {
@@ -39,16 +48,19 @@ fun CheckEmailTextField() {
 
             TextField(
                 value = text,
-                onValueChange = { text = it },
+                onValueChange = {
+                    text = it
+                    onValueChange(it)
+                },
                 modifier = Modifier.fillMaxWidth(),
                 colors = TextFieldDefaults.outlinedTextFieldColors()
             )
-            Row (modifier = Modifier.fillMaxWidth()){
-                Spacer(modifier = Modifier.width(185.dp))
+            Row(modifier = Modifier.fillMaxWidth()) {
+                Spacer(modifier = Modifier.width(160.dp))
                 Text(
                     text = stringResource(R.string.no_send_email),
                     color = LightColor.FOCUS,
-                    modifier = Modifier.padding(0.dp,12.dp)
+                    modifier = Modifier.padding(0.dp, 12.dp)
                 )
             }
         }
@@ -58,5 +70,5 @@ fun CheckEmailTextField() {
 @Preview
 @Composable
 fun CheckEmailTextFieldPreview() {
-    CheckEmailTextField()
+    // CheckEmailTextField()
 }

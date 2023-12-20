@@ -30,6 +30,7 @@ import com.kin.presentation.ui.signup.component.PhoneNumberTextFiled
 import com.kin.presentation.ui.signup.component.SignupButton
 import com.kin.presentation.ui.signup.component.SignupTitle
 import com.kin.presentation.ui.theme.color.LightColor
+import com.kin.presentation.viewmodel.EmailViewModel
 import com.kin.presentation.viewmodel.SignupViewModel
 import com.kin.presentation.viewmodel.util.Event
 import kotlinx.coroutines.CoroutineScope
@@ -39,7 +40,8 @@ import kotlinx.coroutines.launch
 fun SignupScreen(
     context: Context,
     lifecycleScope: CoroutineScope,
-    viewModel: SignupViewModel,
+    viewModel: EmailViewModel,
+    signupViewModel: SignupViewModel,
     onSignupButtonClick: (body: SignupRequestModel) -> Unit,
     onBackPageClick: () -> Unit
 ) {
@@ -55,14 +57,6 @@ fun SignupScreen(
     var name by remember { mutableStateOf("") }
     var phoneNumber by remember { mutableStateOf("") }
     var profileUrl by remember { mutableStateOf("") }
-
-    val body = SignupRequestModel(
-        email = email,
-        password = pw,
-        name = name,
-        phoneNumber = phoneNumber,
-        profileUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fkor.pngtree.com%2Fso%2F%25ED%2594%2584%25EB%25A1%259C%25ED%2595%2584-%25EC%2582%25AC%25EC%25A7%2584&psig=AOvVaw3JCRX0RYhJCKgcUQMAgeNV&ust=1703136886436000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNj13LqlnYMDFQAAAAAdAAAAABAE"
-    )
 
     Box(
         modifier = Modifier
@@ -144,20 +138,13 @@ fun SignupScreen(
                 SignupButton {
                     if (email.isNotEmpty() && pw.isNotEmpty() && name.isNotEmpty() && newPw.isNotEmpty() && phoneNumber.isNotEmpty()) {
                         isError = false
-                        viewModel.signup(body)
-                        lifecycleScope.launch {
-                            signup(
-                                viewModel = viewModel,
-                                errorText = { text ->
-                                    errorText.value = text
-                                },
-                                progressState = { state ->
-                                    progressState.value = state
-                                }
-                            )
-                        }
-                        onSignupButtonClick(body)
-                        Log.d("success", "회원가입 성공")
+                        viewModel.sendPhoneNumber(phoneNumber)
+                        signupViewModel.registerIdData(
+                            email = email,
+                            password = pw,
+                            name = name,
+                            phoneNumber = phoneNumber
+                        )
                     } else {
                         isError = true
                         Log.e("failures", "회원가입 실패")
