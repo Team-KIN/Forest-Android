@@ -19,6 +19,7 @@ import com.kin.presentation.ui.signup.component.EmailTextField
 import com.kin.presentation.ui.signup.component.NicknameTextField
 import com.kin.presentation.ui.signup.component.PasswordCheckTextField
 import com.kin.presentation.ui.signup.component.PasswordTextFeild
+import com.kin.presentation.ui.signup.component.PhoneNumberTextFiled
 import com.kin.presentation.ui.signup.component.SignupButton
 import com.kin.presentation.ui.signup.component.SignupTitle
 import com.kin.presentation.ui.theme.color.LightColor
@@ -48,7 +49,9 @@ fun SignupScreen(){
             ){
                 Spacer(modifier = Modifier.height(35.dp))
                 EmailTextField()
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(2.dp))
+                PhoneNumberTextFiled()
+                Spacer(modifier = Modifier.height(2.dp))
                 NicknameTextField()
                 Spacer(modifier = Modifier.height(34.dp))
                 PasswordTextFeild()
