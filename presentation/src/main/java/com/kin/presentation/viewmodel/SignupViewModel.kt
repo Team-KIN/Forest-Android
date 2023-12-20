@@ -6,6 +6,7 @@ import com.kin.domain.model.signup.request.SignupRequestModel
 import com.kin.presentation.viewmodel.util.Event
 import com.kin.domain.usecase.signup.SignupUseCase
 import com.kin.presentation.viewmodel.util.errorHandling
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
@@ -13,6 +14,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class SignupViewModel @Inject constructor(
     private val signupUseCase: SignupUseCase
 ): ViewModel() {

@@ -24,9 +24,18 @@ import com.kin.presentation.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun EmailTextField() {
+fun EmailTextField(
+    isError: Boolean = false,
+    placeHolder: String,
+    readOnlyBoolean: Boolean = false,
+    setTextChageText: String,
+    singleLine: Boolean = true,
+    onFocusChange: (Boolean) -> Unit = {},
+    onValueChange: (String) -> Unit = {}
+) {
 
     var text by remember { mutableStateOf("") }
+    text = setTextChageText
 
     Box(modifier = Modifier.width(320.dp)) {
         Column {
@@ -38,7 +47,10 @@ fun EmailTextField() {
 
             TextField(
                 value = text,
-                onValueChange = { text = it },
+                onValueChange = {
+                    text = it
+                    onValueChange(it)
+                },
                 modifier = Modifier
                     .fillMaxWidth(),
                 colors = TextFieldDefaults.outlinedTextFieldColors()
@@ -57,5 +69,5 @@ fun EmailTextField() {
 @Preview
 @Composable
 fun EmailTextFieldPreview() {
-    EmailTextField()
+    // EmailTextField()
 }
