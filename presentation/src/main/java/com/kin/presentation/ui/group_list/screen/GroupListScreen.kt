@@ -20,7 +20,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kin.domain.model.group_list.response.GroupListModel
-import com.kin.presentation.ui.group_list.component.Bottom
 import com.kin.presentation.ui.group_list.component.GroupList
 import com.kin.presentation.ui.group_list.component.GroupListTitle
 import com.kin.presentation.ui.group_list.component.OptionButton
@@ -73,10 +72,6 @@ fun GroupListScreen(
                 // groupList = viewModel.groupList
             )
         }
-        Bottom(
-            { onMyGroupClick() },
-            { onMyPageClick() }
-        )
     }
     Column(modifier = Modifier.padding(start = 320.dp)) {
         Spacer(modifier = Modifier.height(572.dp))
