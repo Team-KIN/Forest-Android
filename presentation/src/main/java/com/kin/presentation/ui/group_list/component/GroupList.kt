@@ -16,16 +16,17 @@ import com.kin.presentation.ui.group_list.item.GroupItemList
 
 @Composable
 fun GroupList(
-    // groupList: List<GroupListModel>
-    onDetail: () -> Unit
+    groupList: List<GroupListModel>
 ) {
     Box(
     ) {
-        LazyColumn(
-        ) {
-            items(30){
+        LazyColumn {
+            items(groupList.size){ index ->
                 GroupItemList(
-                    onDetail = { onDetail() }
+                    groupList[index].id,
+                    groupList[index].name,
+                    groupList[index].headcount,
+                    groupList[index].todo
                 )
                 Spacer(modifier = Modifier.height(20.dp))
             }
