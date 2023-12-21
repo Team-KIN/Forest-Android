@@ -1,8 +1,10 @@
 package com.kin.forest_android.module
 
+import android.util.Log
 import com.kin.data.remote.api.login.LoginAPI
 import com.kin.data.util.Interceptor
 import com.kin.data.BuildConfig
+import com.kin.data.remote.api.group_list.GroupListAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,9 +13,7 @@ import okhttp3.CookieJar
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import java.util.concurrent.TimeUnit
-import javax.annotation.Signed
 import javax.inject.Singleton
 
 @Module
@@ -23,14 +23,14 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideOkhttpClient(
-        loginInterceptor: Interceptor,
+        interceptor: Interceptor,
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .cookieJar(CookieJar.NO_COOKIES)
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
-            .addInterceptor(loginInterceptor)
+            .addInterceptor(interceptor)
             .build()
     }
 
@@ -57,5 +57,11 @@ object NetworkModule {
     @Singleton
     fun loginService(retrofit: Retrofit): LoginAPI {
         return retrofit.create(LoginAPI::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun groupListService(retrofit: Retrofit): GroupListAPI {
+        return retrofit.create(GroupListAPI::class.java)
     }
 }

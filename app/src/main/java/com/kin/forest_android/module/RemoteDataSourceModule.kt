@@ -1,5 +1,7 @@
 package com.kin.forest_android.module
 
+import com.kin.data.remote.datasource.group_list.GroupListDataSource
+import com.kin.data.remote.datasource.group_list.GroupListDataSourceImpl
 import com.kin.data.remote.datasource.login.LoginDataSource
 import com.kin.data.remote.datasource.login.LoginDateSourceImpl
 import com.kin.data.remote.datasource.main.MainDataSource
@@ -30,4 +32,7 @@ abstract class RemoteDataSourceModule {
         mainDataSourceImpl: MainDataSourceImpl
     ): MainDataSource
 
+    abstract fun provideGroupListDataSource(
+        groupListDataSourceImpl: GroupListDataSourceImpl
+    ): GroupListDataSource
 }
