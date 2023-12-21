@@ -4,6 +4,8 @@ import com.kin.data.remote.datasource.group_list.GroupListDataSource
 import com.kin.data.remote.datasource.group_list.GroupListDataSourceImpl
 import com.kin.data.remote.datasource.login.LoginDataSource
 import com.kin.data.remote.datasource.login.LoginDateSourceImpl
+import com.kin.data.remote.datasource.signup.SignupDataSource
+import com.kin.data.remote.datasource.signup.SignupDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,6 +19,11 @@ abstract class RemoteDataSourceModule {
     abstract fun provideLoginDataSource(
         loginDataSourceImpl: LoginDateSourceImpl
     ): LoginDataSource
+
+    @Binds
+    abstract fun provideSignupDataSource(
+        signupDataSourceImpl: SignupDataSourceImpl
+    ): SignupDataSource
 
     @Binds
     abstract fun provideGroupListDataSource(

@@ -1,8 +1,9 @@
 package com.kin.forest_android.module
 
 import com.kin.data.remote.api.login.LoginAPI
-import com.kin.data.util.LoginInterceptor
+import com.kin.data.util.Interceptor
 import com.kin.data.BuildConfig
+import com.kin.data.remote.api.signup.SignupAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +24,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideOkhttpClient(
-        loginInterceptor: LoginInterceptor,
+        loginInterceptor: Interceptor,
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .cookieJar(CookieJar.NO_COOKIES)
@@ -57,5 +58,11 @@ object NetworkModule {
     @Singleton
     fun loginService(retrofit: Retrofit): LoginAPI {
         return retrofit.create(LoginAPI::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun signupService(retrofit: Retrofit): SignupAPI {
+        return retrofit.create(SignupAPI::class.java)
     }
 }
