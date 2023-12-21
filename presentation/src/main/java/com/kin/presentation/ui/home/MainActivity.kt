@@ -10,11 +10,16 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.compose.rememberNavController
 import com.kin.presentation.ui.base.BaseActivity
 import com.kin.presentation.ui.component.navigation.BottomNavigationBar
 import com.kin.presentation.ui.component.navigation.NavigationGraph
 import com.kin.presentation.viewmodel.MainViewModel
+import com.kin.presentation.ui.group_list.GroupListActivity
+import com.kin.presentation.ui.group_todo.GroupTodoActivity
+import com.kin.presentation.ui.home.screen.HomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

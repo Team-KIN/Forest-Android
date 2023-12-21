@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kin.domain.model.group_list.response.GroupListModel
+import com.kin.presentation.ui.group_list.component.Bottom
 import com.kin.presentation.ui.group_list.component.GroupList
 import com.kin.presentation.ui.group_list.component.GroupListTitle
 import com.kin.presentation.ui.group_list.component.OptionButton
@@ -39,15 +40,15 @@ fun GroupListScreen(
 
     val progressState = remember { mutableStateOf(false) }
     
-    LaunchedEffect("GetGroupList") {
-        viewModel.getAccessToken()
-        viewModel.getGroupList()
-        getGroupList(
-            viewModel = viewModel,
-            progressState = { progressState.value = it }
-        )
-        Log.d("LaunchedEffect: List", "작동")
-    }
+//    LaunchedEffect("GetGroupList") {
+//        viewModel.getAccessToken()
+//        viewModel.getGroupList()
+//        getGroupList(
+//            viewModel = viewModel,
+//            progressState = { progressState.value = it }
+//        )
+//        Log.d("LaunchedEffect: List", "작동")
+//    }
 
     Column(
         modifier = Modifier
@@ -68,7 +69,8 @@ fun GroupListScreen(
             contentAlignment = Alignment.Center
         ) {
             GroupList(
-                groupList = viewModel.groupList
+                { onDetail() }
+                // groupList = viewModel.groupList
             )
         }
         Bottom(

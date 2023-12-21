@@ -25,10 +25,11 @@ import java.util.UUID
 
 @Composable
 fun GroupItemList(
-    id: UUID,
-    name: String,
-    headcount: Int,
-    todo: Int
+//    id: UUID,
+//    name: String,
+//    headcount: Int,
+//    todo: Int
+    onDetail: () -> Unit
 ) {
     Row(
         horizontalArrangement = Arrangement.Center,
@@ -45,7 +46,7 @@ fun GroupItemList(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = name,
+                text = "모여봐요 공부의 숲",
                 color = LightColor.BLACK,
                 fontSize = 15.sp,
                 modifier = Modifier.clickable(
@@ -68,7 +69,7 @@ fun GroupItemList(
                     contentDescription = "Member Icon"
                 )
                 Text(
-                    text = "$headcount",
+                    text = "99+",
                     color = LightColor.SECONDARY,
                     fontSize = 12.sp
                 )
@@ -83,7 +84,7 @@ fun GroupItemList(
                 )
                 Spacer(modifier = Modifier.width(2.dp))
                 Text(
-                    text = "$todo",
+                    text = "99+",
                     color = LightColor.SECONDARY,
                     fontSize = 12.sp
                 )

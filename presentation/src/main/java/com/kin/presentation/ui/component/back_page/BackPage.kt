@@ -21,7 +21,9 @@ import com.kin.presentation.ui.theme.color.LightColor
 import com.kin.presentation.R
 
 @Composable
-fun BackPage() {
+fun BackPage(
+    onBack: () -> Unit,
+) {
     Box() {
         Row() {
             Image(
@@ -33,7 +35,14 @@ fun BackPage() {
             Text(
                 text = stringResource(R.string.back_page_text),
                 fontSize = 12.sp,
-                modifier = Modifier.padding(0.dp, 3.dp),
+                modifier = Modifier
+                    .padding(0.dp, 3.dp)
+                    .clickable(
+                        indication = null,
+                        interactionSource = remember { MutableInteractionSource() }
+                    ) {
+                        onBack()
+                    },
                 color = LightColor . BLACK
             )
         }
