@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -19,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kin.domain.model.group_list.response.GroupListModel
+import com.kin.presentation.ui.group_list.component.Bottom
 import com.kin.presentation.ui.group_list.component.GroupList
 import com.kin.presentation.ui.group_list.component.GroupListTitle
 import com.kin.presentation.ui.group_list.component.OptionButton
@@ -28,19 +30,23 @@ import com.kin.presentation.viewmodel.util.Event
 
 @Composable
 fun GroupListScreen(
-    viewModel: GroupListViewModel
+    // viewModel: GroupListViewModel,
+    onMyGroupClick: () -> Unit,
+    onMyPageClick: () -> Unit,
+    onDetail: () -> Unit,
+    onCreateGroup: () -> Unit
 ) {
     val progressState = remember { mutableStateOf(false) }
     
-    LaunchedEffect("GetGroupList") {
-        viewModel.getAccessToken()
-        viewModel.getGroupList()
-        getGroupList(
-            viewModel = viewModel,
-            progressState = { progressState.value = it }
-        )
-        Log.d("LaunchedEffect: List", "작동")
-    }
+//    LaunchedEffect("GetGroupList") {
+//        viewModel.getAccessToken()
+//        viewModel.getGroupList()
+//        getGroupList(
+//            viewModel = viewModel,
+//            progressState = { progressState.value = it }
+//        )
+//        Log.d("LaunchedEffect: List", "작동")
+//    }
 
     Column(
         modifier = Modifier
@@ -51,21 +57,30 @@ fun GroupListScreen(
             modifier = Modifier.padding(top = 16.dp)
         ) {
             Spacer(modifier = Modifier.width(20.dp))
-            GroupListTitle()
+            GroupListTitle(
+                { onDetail() }
+            )
         }
         Spacer(modifier = Modifier.height(16.dp))
         Box(
-            modifier = Modifier.width(344.dp),
+            modifier = Modifier.size(344.dp,655.dp),
             contentAlignment = Alignment.Center
         ) {
             GroupList(
-                groupList = viewModel.groupList
+                { onDetail() }
+                // groupList = viewModel.groupList
             )
         }
+        Bottom(
+            { onMyGroupClick() },
+            { onMyPageClick() }
+        )
     }
     Column(modifier = Modifier.padding(start = 320.dp)) {
         Spacer(modifier = Modifier.height(572.dp))
-        OptionButton {}
+        OptionButton {
+            onCreateGroup()
+        }
     }
 }
 suspend fun getGroupList(

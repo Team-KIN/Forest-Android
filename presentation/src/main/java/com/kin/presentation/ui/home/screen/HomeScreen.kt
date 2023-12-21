@@ -9,13 +9,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kin.domain.model.main.response.MainModel
+import androidx.compose.ui.Alignment
+import com.kin.presentation.ui.home.component.Bottom
 import com.kin.presentation.ui.home.component.Divider
 import com.kin.presentation.ui.home.component.ExtraList
 import com.kin.presentation.ui.home.component.GroupList
@@ -27,13 +26,12 @@ import com.kin.presentation.viewmodel.util.Event
 
 @Composable
 fun HomeScreen(
-    data: MainModel,
-    viewModel: MainViewModel
+    viewModel: MainViewModel,
+    onGroupClick: () -> Unit,
+    onMyPageClick: () -> Unit,
+    onDetailMyGroup: () -> Unit
 ) {
-    LaunchedEffect(key1 = "main"){
-        viewModel.main()
-    }
-
+    val data = viewModel.mainData.value
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -43,10 +41,12 @@ fun HomeScreen(
             Row (
                 modifier = Modifier.padding(top = 40.dp, start = 16.dp)
             ){
-                Profile(
-                    name = data.name,
-                    email = data.email
-                )
+                if (data != null) {
+                    Profile(
+                        name = data.name,
+                        email = data.email
+                    )
+                }
             }
             Column(
                 modifier = Modifier.padding(start = 16.dp, top = 17.dp)
@@ -55,13 +55,26 @@ fun HomeScreen(
                 Spacer(modifier = Modifier.height(28.dp))
                 MyGroupTitle()
                 Spacer(modifier = Modifier.height(20.dp))
-                GroupList(data = data)
+                if (data != null) {
+                    GroupList(
+                        data = data.groups
+                    ) { onDetailMyGroup() }
+                }
                 Spacer(modifier = Modifier.height(20.dp))
             }
             Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.padding(start = 123.dp)
             ){
                 ExtraList()
+            }
+            Column(
+                modifier = Modifier.padding(top = 61.dp)
+            ) {
+                Bottom(
+                    { onGroupClick() },
+                    { onMyPageClick() }
+                )
             }
         }
     }
