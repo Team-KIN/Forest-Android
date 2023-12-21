@@ -34,7 +34,7 @@ fun ChangePasswordScreen() {
                 modifier = Modifier.padding(top = 18.dp)
             ) {
                 Spacer(modifier = Modifier.width(12.dp))
-                // BackPage()
+                BackPage()
             }
             Column(
                 modifier = Modifier.padding(start = 20.dp)
