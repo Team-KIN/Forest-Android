@@ -1,5 +1,7 @@
 package com.kin.presentation.ui.deatil_group.screen
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,7 +25,11 @@ import com.kin.presentation.ui.deatil_group.component.JoinGroupButton
 import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable
-fun DetailGroupScreen() {
+fun DetailGroupScreen(
+    context: Context,
+    onBack: () -> Unit,
+    onMyGroup: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -34,7 +40,9 @@ fun DetailGroupScreen() {
                 modifier = Modifier.padding(top = 18.dp)
             ) {
                 Spacer(modifier = Modifier.width(12.dp))
-                BackPage()
+                BackPage(
+                    { onBack() }
+                )
             }
             Column(
                 modifier = Modifier.padding(start = 20.dp)
@@ -53,7 +61,10 @@ fun DetailGroupScreen() {
                 Spacer(modifier = Modifier.height(128.dp))
                 GroupMemberNum()
                 Spacer(modifier = Modifier.height(16.dp))
-                JoinGroupButton {}
+                JoinGroupButton {
+                    onMyGroup()
+                    Toast.makeText(context, "그룹에 가입되었습니다.", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
@@ -62,5 +73,5 @@ fun DetailGroupScreen() {
 @Preview
 @Composable
 fun DetailGroupScreenPreview() {
-    DetailGroupScreen()
+    // DetailGroupScreen()
 }
