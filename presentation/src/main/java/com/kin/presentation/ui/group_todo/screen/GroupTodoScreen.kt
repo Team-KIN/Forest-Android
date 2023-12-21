@@ -44,9 +44,7 @@ fun GroupTodoScreen(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                BackPage(
-                    { onBackPage() }
-                )
+                BackPage()
                 TodoToggle()
             }
         }

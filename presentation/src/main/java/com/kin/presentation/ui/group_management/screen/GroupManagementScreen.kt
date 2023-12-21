@@ -29,7 +29,7 @@ fun GroupManagementScreen() {
     ) {
         Column {
             Spacer(modifier = Modifier.height(11.dp))
-            //BackPage()
+            BackPage()
             Spacer(modifier = Modifier.height(27.dp))
             Row {
                 Spacer(modifier = Modifier.width(20.dp))
