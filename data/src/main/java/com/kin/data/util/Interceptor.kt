@@ -1,6 +1,5 @@
 package com.kin.data.util
 
-import android.util.Log
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import com.kin.data.local.datasource.login.LocalLoginDataSource
