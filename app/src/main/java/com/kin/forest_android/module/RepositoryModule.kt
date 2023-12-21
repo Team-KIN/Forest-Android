@@ -1,9 +1,7 @@
 package com.kin.forest_android.module
 
 import com.kin.data.repository.LoginRepositoryImpl
-import com.kin.data.repository.SignupRepositoryImpl
 import com.kin.domain.repository.LoginRepository
-import com.kin.domain.repository.SignupRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,9 +15,4 @@ abstract class RepositoryModule {
     abstract fun provideLoginRepository(
         loginRepositoryImpl: LoginRepositoryImpl
     ): LoginRepository
-
-    @Binds
-    abstract fun provideSignupRepository(
-        signupRepositoryImpl: SignupRepositoryImpl
-    ): SignupRepository
 }
