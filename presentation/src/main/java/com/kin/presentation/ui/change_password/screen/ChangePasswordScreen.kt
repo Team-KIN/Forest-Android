@@ -23,7 +23,9 @@ import com.kin.presentation.ui.component.back_page.BackPage
 
 
 @Composable
-fun ChangePasswordScreen() {
+fun ChangePasswordScreen(
+    onClick: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -34,7 +36,9 @@ fun ChangePasswordScreen() {
                 modifier = Modifier.padding(top = 18.dp)
             ) {
                 Spacer(modifier = Modifier.width(12.dp))
-                BackPage()
+                BackPage(
+                    onClick = onClick
+                )
             }
             Column(
                 modifier = Modifier.padding(start = 20.dp)
@@ -60,5 +64,5 @@ fun ChangePasswordScreen() {
 @Preview(showBackground = true)
 @Composable
 fun ChangePasswordScreenPreview() {
-    ChangePasswordScreen()
+    // ChangePasswordScreen()
 }

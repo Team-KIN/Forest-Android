@@ -21,14 +21,18 @@ import com.kin.presentation.ui.new_group_description.component.LatterNum
 import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable
-fun NewGroupDescriptionScreen() {
+fun NewGroupDescriptionScreen(
+    onClick: () -> Unit
+) {
     Column(modifier= Modifier
         .fillMaxSize()
         .background(LightColor.WHITE)
     ) {
         Row(modifier = Modifier.padding(top = 18.dp)) {
             Spacer(modifier = Modifier.width(12.dp))
-            BackPage()
+            BackPage(
+                onClick = onClick
+            )
         }
         Column(modifier = Modifier.padding(start = 20.dp)) {
             Spacer(modifier = Modifier.height(23.dp))
@@ -53,5 +57,5 @@ fun NewGroupDescriptionScreen() {
 @Preview
 @Composable
 fun NewGroupDescriptionScreenPreview() {
-    NewGroupDescriptionScreen()
+    // NewGroupDescriptionScreen()
 }
