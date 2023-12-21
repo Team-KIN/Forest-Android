@@ -8,15 +8,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kin.domain.model.group_list.response.GroupListModel
 import com.kin.presentation.ui.group_list.item.GroupItemList
 
 @Composable
-fun GroupList() {
+fun GroupList(
+    groupList: List<GroupListModel>
+) {
     Box(
     ) {
         LazyColumn {
-            items(50){
-                GroupItemList()
+            items(groupList.size){ index ->
+                GroupItemList(
+                    groupList[index].id,
+                    groupList[index].name,
+                    groupList[index].headcount,
+                    groupList[index].todo
+                )
                 Spacer(modifier = Modifier.height(20.dp))
             }
         }
@@ -26,5 +34,5 @@ fun GroupList() {
 @Preview
 @Composable
 fun GroupListPreview() {
-    GroupList()
+    // GroupList()
 }
