@@ -1,5 +1,6 @@
 package com.kin.data.util
 
+import android.util.Log
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import com.kin.data.local.datasource.login.LocalLoginDataSource
@@ -14,7 +15,7 @@ import okhttp3.RequestBody
 import okhttp3.Response
 import javax.inject.Inject
 
-class LoginInterceptor @Inject constructor(
+class Interceptor @Inject constructor(
     private val dataSource: LocalLoginDataSource,
 ): Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -23,11 +24,18 @@ class LoginInterceptor @Inject constructor(
         val currentTime = System.currentTimeMillis().toForestTimeDate()
         val ignorePath = listOf("/auth")
         val ignoreMethod = listOf("POST")
+        val groupPath = listOf("/group")
+        val groupMethod = listOf("GET")
         val path = request.url.encodedPath
         val method = request.method
 
         ignorePath.forEachIndexed { index, s ->
             if (s == path && ignoreMethod[index] == method) {
+                return chain.proceed(request)
+            }
+        }
+        groupPath.forEachIndexed { index, s ->
+            if(s == path && groupMethod[index] == method) {
                 return chain.proceed(request)
             }
         }
@@ -67,6 +75,7 @@ class LoginInterceptor @Inject constructor(
                     dataSource.setRefreshTime(token["refreshExp"].toString())
                 } else throw TokenExpirationException()
             }
+
             val accessToken = dataSource.getAccessToken().first().replace("\"", "")
             builder.addHeader("Authorization", "Bearer $accessToken")
         }
