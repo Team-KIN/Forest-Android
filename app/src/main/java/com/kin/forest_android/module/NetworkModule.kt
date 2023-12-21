@@ -4,6 +4,7 @@ import com.kin.data.remote.api.login.LoginAPI
 import com.kin.data.util.Interceptor
 import com.kin.data.BuildConfig
 import com.kin.data.remote.api.group_list.GroupListAPI
+import com.kin.data.remote.api.signup.SignupAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,8 +23,9 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideOkhttpClient(
-        interceptor: Interceptor,
-    ): OkHttpClient {
+    interceptor: Interceptor,
+    ): OkHttpClient
+    {
         return OkHttpClient.Builder()
             .cookieJar(CookieJar.NO_COOKIES)
             .connectTimeout(30, TimeUnit.SECONDS)
@@ -62,5 +64,13 @@ object NetworkModule {
     @Singleton
     fun groupListService(retrofit: Retrofit): GroupListAPI {
         return retrofit.create(GroupListAPI::class.java)
+    }
+
+
+    @Provides
+    @Singleton
+    fun signupService(retrofit: Retrofit): SignupAPI {
+        return retrofit.create(SignupAPI::class.java)
+
     }
 }
