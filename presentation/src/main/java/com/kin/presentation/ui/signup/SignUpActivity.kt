@@ -1,6 +1,7 @@
 package com.kin.presentation.ui.signup
 
 import android.content.Intent
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.ui.platform.LocalContext
@@ -13,7 +14,7 @@ import com.kin.presentation.viewmodel.SignupViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignUpActivity: BaseActivity() {
+class SignUpActivity : BaseActivity() {
     private val signupViewModel by viewModels<SignupViewModel>()
     override fun init() {
         setContent {
@@ -22,7 +23,11 @@ class SignUpActivity: BaseActivity() {
                 lifecycleScope = lifecycleScope,
                 viewModel = viewModel(LocalContext.current as SignUpActivity),
                 onSignupButtonClick = {
-
+                    Log.d("signupSuccessResponse","${signupViewModel.signupSuccessResponse.value}")
+                    if (signupViewModel.signupSuccessResponse.value == true) {
+                        backPage()
+                        finish()
+                    }
                 },
                 onBackPageClick = {
                     backPage()
@@ -35,7 +40,7 @@ class SignUpActivity: BaseActivity() {
 
     }
 
-    private fun backPage(){
+    private fun backPage() {
         startActivity(
             Intent(
                 this,

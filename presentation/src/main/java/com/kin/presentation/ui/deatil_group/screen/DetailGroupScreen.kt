@@ -23,7 +23,9 @@ import com.kin.presentation.ui.deatil_group.component.JoinGroupButton
 import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable
-fun DetailGroupScreen() {
+fun DetailGroupScreen(
+    onClick: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -34,7 +36,9 @@ fun DetailGroupScreen() {
                 modifier = Modifier.padding(top = 18.dp)
             ) {
                 Spacer(modifier = Modifier.width(12.dp))
-                BackPage()
+                BackPage(
+                    onClick = onClick
+                )
             }
             Column(
                 modifier = Modifier.padding(start = 20.dp)
@@ -62,5 +66,5 @@ fun DetailGroupScreen() {
 @Preview
 @Composable
 fun DetailGroupScreenPreview() {
-    DetailGroupScreen()
+    // DetailGroupScreen()
 }

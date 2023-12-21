@@ -20,7 +20,9 @@ import com.kin.presentation.ui.join_private_group.component.JoinPrivateGroupTitl
 import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable
-fun JoinPrivateGroupScreen() {
+fun JoinPrivateGroupScreen(
+    onClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -30,7 +32,9 @@ fun JoinPrivateGroupScreen() {
             modifier = Modifier.padding(top = 18.dp)
         ) {
             Spacer(modifier = Modifier.width(12.dp))
-            BackPage()
+            BackPage(
+                onClick = onClick
+            )
         }
         Column(
             modifier = Modifier.padding(start = 20.dp)
@@ -53,5 +57,5 @@ fun JoinPrivateGroupScreen() {
 @Preview
 @Composable
 fun JoinPrivateGroupScreenPreview() {
-    JoinPrivateGroupScreen()
+    // JoinPrivateGroupScreen()
 }

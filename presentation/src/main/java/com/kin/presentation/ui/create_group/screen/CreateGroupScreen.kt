@@ -22,7 +22,9 @@ import com.kin.presentation.ui.create_group.component.NextPageButton
 import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable
-fun CreateGroupScreen() {
+fun CreateGroupScreen(
+    onClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -32,7 +34,9 @@ fun CreateGroupScreen() {
             modifier = Modifier.padding(top = 18.dp)
         ) {
             Spacer(modifier = Modifier.width(12.dp))
-            BackPage()
+            BackPage(
+                onClick = onClick
+            )
         }
         Column(
             modifier = Modifier.padding(start = 20.dp)
@@ -59,5 +63,5 @@ fun CreateGroupScreen() {
 @Preview
 @Composable
 fun CreateGroupScreenPreview() {
-    CreateGroupScreen()
+    // CreateGroupScreen()
 }

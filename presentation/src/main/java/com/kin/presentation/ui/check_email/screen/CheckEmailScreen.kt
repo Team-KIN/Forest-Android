@@ -22,7 +22,9 @@ import com.kin.presentation.ui.component.back_page.BackPage
 import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable
-fun CheckEmailScreen() {
+fun CheckEmailScreen(
+    onClick: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -33,7 +35,9 @@ fun CheckEmailScreen() {
                 modifier = Modifier.padding(top = 18.dp)
             ){
                 Spacer(modifier = Modifier.width(12.dp))
-                BackPage()
+                BackPage(
+                    onClick = onClick
+                )
             }
             Column (
                 modifier = Modifier.padding(20.dp)
@@ -57,5 +61,5 @@ fun CheckEmailScreen() {
 @Preview
 @Composable
 fun CheckEmailScreenPreview() {
-    CheckEmailScreen()
+    // CheckEmailScreen()
 }
