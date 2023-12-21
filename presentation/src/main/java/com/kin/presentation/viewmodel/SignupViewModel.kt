@@ -1,5 +1,6 @@
 package com.kin.presentation.viewmodel
 
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,14 +13,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class SignupViewModel @Inject constructor(
     private val signupUseCase: SignupUseCase
-): ViewModel() {
+): ViewModel(){
     private val _signupResponse = MutableStateFlow<Event<Unit>>(Event.Loading)
     val signupResponse = _signupResponse.asStateFlow()
 

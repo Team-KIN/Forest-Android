@@ -27,7 +27,7 @@ class LoginInterceptor @Inject constructor(
         val method = request.method
 
         ignorePath.forEachIndexed { index, s ->
-            if (s == path && ignoreMethod[index] == method) {
+            if (path.startsWith(s) && ignoreMethod[index] == method) {
                 return chain.proceed(request)
             }
         }
