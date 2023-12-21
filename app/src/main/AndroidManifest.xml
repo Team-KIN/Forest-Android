@@ -34,5 +34,8 @@
         <activity
             android:name="com.kin.presentation.ui.home.MainActivity"
             android:exported="false"/>
+        <activity
+            android:name="com.kin.presentation.ui.group_list.GroupListActivity"
+            android:exported="false"/>
     </application>
 </manifest>
