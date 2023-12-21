@@ -18,6 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -55,20 +56,24 @@ fun PasswordTextField(
                     },
                     modifier = Modifier
                         .fillMaxWidth(),
-                    colors = TextFieldDefaults.outlinedTextFieldColors()
+                    colors = TextFieldDefaults.outlinedTextFieldColors(),
+                    textStyle = TextStyle(
+                        fontSize = 15.sp,
+                        color = LightColor.BLACK
+                    )
                 )
             }
 
             Row(modifier = Modifier.fillMaxWidth()) {
-                Text(
-                    text = stringResource(R.string.not_password),
-                    color = LightColor.ERROR,
-                    fontSize = 12.sp,
-                    modifier = Modifier
-                        .padding(0.dp, 12.dp)
-                )
+//                Text(
+//                    text = stringResource(R.string.not_password),
+//                    color = LightColor.ERROR,
+//                    fontSize = 12.sp,
+//                    modifier = Modifier
+//                        .padding(0.dp, 12.dp)
+//                )
 
-                Spacer(modifier = Modifier.width(95.dp))
+                Spacer(modifier = Modifier.width(245.dp))
                 Text(
                     text = stringResource(R.string.search_password),
                     color = LightColor.FOCUS,

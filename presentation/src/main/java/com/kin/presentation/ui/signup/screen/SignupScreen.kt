@@ -40,8 +40,8 @@ fun SignupScreen(
     context: Context,
     lifecycleScope: CoroutineScope,
     viewModel: SignupViewModel,
-    onSignupButtonClick: () -> Unit,
-    onBackPageClick: () -> Unit
+    onSignupButtonClick: (body: SignupRequestModel) -> Unit,
+    onBackPageClick: () -> Unit,
 ) {
     var isClick by remember { mutableStateOf(false) }
     var isError by remember { mutableStateOf(false) }
@@ -74,9 +74,7 @@ fun SignupScreen(
                 modifier = Modifier.padding(top = 18.dp)
             ) {
                 Spacer(modifier = Modifier.width(12.dp))
-                BackPage(
-                    onClick = onBackPageClick
-                )
+                BackPage()
             }
             Column(
                 modifier = Modifier.padding(20.dp)
@@ -143,22 +141,19 @@ fun SignupScreen(
                         newPw = text
                     })
                 Spacer(modifier = Modifier.height(46.dp))
+                SignupButton {}
                 SignupButton {
                     if (email.isNotEmpty() && pw.isNotEmpty() && name.isNotEmpty() && newPw.isNotEmpty() && phoneNumber.isNotEmpty()) {
                         isError = false
+                        viewModel.signup(body)
                         lifecycleScope.launch {
-                            viewModel.signup(body = body)
-                            signup(
-                                viewModel = viewModel,
-                                errorText = { text ->
-                                    errorText.value = text
-                                },
-                                progressState = { state ->
-                                    progressState.value = state
-                                },
-                                onSignupButtonClick =  { onSignupButtonClick }
-                            )
+                            signup(viewModel = viewModel, errorText = { text ->
+                                errorText.value = text
+                            }, progressState = { state ->
+                                progressState.value = state
+                            })
                         }
+                        onSignupButtonClick(body)
                         Log.d("success", "회원가입 성공")
                     } else {
                         isError = true
@@ -174,7 +169,6 @@ suspend fun signup(
     viewModel: SignupViewModel,
     errorText: (errorText: String) -> Unit,
     progressState: (progressState: Boolean) -> Unit,
-    onSignupButtonClick: () -> Unit
 ) {
     viewModel.signupResponse.collect {
         when (it) {

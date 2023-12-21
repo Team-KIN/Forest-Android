@@ -1,5 +1,7 @@
 package com.kin.forest_android.module
 
+import com.kin.data.remote.datasource.group_list.GroupListDataSource
+import com.kin.data.remote.datasource.group_list.GroupListDataSourceImpl
 import com.kin.data.remote.datasource.login.LoginDataSource
 import com.kin.data.remote.datasource.login.LoginDateSourceImpl
 import com.kin.data.remote.datasource.signup.SignupDataSource
@@ -8,7 +10,6 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -23,4 +24,9 @@ abstract class RemoteDataSourceModule {
     abstract fun provideSignupDataSource(
         signupDataSourceImpl: SignupDataSourceImpl
     ): SignupDataSource
+
+    @Binds
+    abstract fun provideGroupListDataSource(
+        groupListDataSourceImpl: GroupListDataSourceImpl
+    ): GroupListDataSource
 }

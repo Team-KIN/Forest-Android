@@ -3,6 +3,7 @@ package com.kin.presentation.ui.login.screen
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,7 +38,7 @@ fun LoginScreen(
     lifecycleScope: CoroutineScope,
     viewModel: LoginViewModel,
     onSignUpClick: () -> Unit,
-    onMainClick: (body: LoginRequestModel) -> Unit
+    onMainClick: () -> Unit
 ) {
     var isClick by remember { mutableStateOf(false) }
     var isError by remember { mutableStateOf(false) }
@@ -104,13 +105,15 @@ fun LoginScreen(
                             },
                             progressState = { state ->
                                 progressState.value = state
-                            }
+                            },
+                            onMainClick = { onMainClick() }
                         )
                     }
-                    onMainClick(body)
+                    Toast.makeText(context, "로그인 성공", Toast.LENGTH_SHORT).show()
                     Log.d("success", "로그인 성공")
                 } else {
                     isError = true
+                    Toast.makeText(context, "로그인 실패", Toast.LENGTH_SHORT).show()
                     Log.d("failures", "로그인 실패")
                 }
             }
@@ -125,7 +128,8 @@ fun LoginScreen(
 suspend fun login(
     viewModel: LoginViewModel,
     errorText: (errorText: String) -> Unit,
-    progressState: (progressState: Boolean) -> Unit
+    progressState: (progressState: Boolean) -> Unit,
+    onMainClick: () -> Unit
 ) {
     viewModel.loginResponse.collect {
         when (it) {
@@ -135,6 +139,7 @@ suspend fun login(
 
             is Event.Success -> {
                 viewModel.saveToken(token = it.data!!)
+                viewModel.getAccessToken()
                 progressState(false)
             }
 

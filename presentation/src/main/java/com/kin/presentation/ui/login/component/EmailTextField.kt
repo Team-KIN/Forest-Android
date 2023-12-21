@@ -16,6 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -53,16 +54,20 @@ fun EmailTextField(
                 },
                 modifier = Modifier
                     .fillMaxWidth(),
-                colors = TextFieldDefaults.outlinedTextFieldColors()
+                colors = TextFieldDefaults.outlinedTextFieldColors(),
+                textStyle = TextStyle(
+                    fontSize = 15.sp,
+                    color = LightColor.BLACK
+                )
             )
 
-            Text(
-                text = stringResource(R.string.not_found_email),
-                color = LightColor.ERROR,
-                fontSize = 12.sp,
-                modifier = Modifier
-                    .padding(0.dp, 12.dp)
-            )
+//            Text(
+//                text = stringResource(R.string.not_found_email),
+//                color = LightColor.ERROR,
+//                fontSize = 12.sp,
+//                modifier = Modifier
+//                    .padding(0.dp, 12.dp)
+//            )
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.kin.presentation.ui.component.back_page
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -19,14 +18,8 @@ import com.kin.presentation.ui.theme.color.LightColor
 import com.kin.presentation.R
 
 @Composable
-fun BackPage(onClick: () -> Unit) {
-    Box(
-        modifier = Modifier.clickable(
-                onClick = {
-                    onClick
-                }
-        )
-    ) {
+fun BackPage() {
+    Box() {
         Row() {
             Image(
                 painter = painterResource(R.drawable.back_icon),
@@ -48,5 +41,5 @@ fun BackPage(onClick: () -> Unit) {
 @Preview
 @Composable
 fun BackPagePreview() {
-    // BackPage()
+    BackPage()
 }

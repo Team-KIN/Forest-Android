@@ -36,9 +36,7 @@ fun GroupSettingScreen(
     ){
         Column {
             Spacer(modifier = Modifier.height(4.dp))
-            BackPage(
-                onClick = onClick
-            )
+            BackPage()
             Spacer(modifier = Modifier.height(19.dp))
             Row (
                 modifier = Modifier.padding(start = 20.dp)

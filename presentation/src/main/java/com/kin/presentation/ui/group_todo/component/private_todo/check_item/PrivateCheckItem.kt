@@ -25,7 +25,7 @@ import com.kin.presentation.ui.theme.color.LightColor
 @Composable
 fun PrivateCheckItem() {
     var checked by remember { mutableStateOf(false) }
-    val backgroundColor = if (checked) LightColor.GROUPTODO else LightColor.GRAY
+    val backgroundColor = if (checked) LightColor.PRIVATETODO else LightColor.GRAY
 
     Row(
         modifier = Modifier.size(360.dp, 56.dp),

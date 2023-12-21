@@ -2,6 +2,8 @@ package com.kin.presentation.ui.group_list.item
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -18,9 +21,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kin.presentation.ui.theme.color.LightColor
 import com.kin.presentation.R
+import java.util.UUID
 
 @Composable
-fun GroupItemList() {
+fun GroupItemList(
+//    id: UUID,
+//    name: String,
+//    headcount: Int,
+//    todo: Int
+    onDetail: () -> Unit
+) {
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
@@ -38,7 +48,13 @@ fun GroupItemList() {
             Text(
                 text = "모여봐요 공부의 숲",
                 color = LightColor.BLACK,
-                fontSize = 15.sp
+                fontSize = 15.sp,
+                modifier = Modifier.clickable(
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() }
+                ) {
+                    onDetail()
+                }
             )
             Spacer(modifier = Modifier.width(4.dp))
             Image(
@@ -80,5 +96,5 @@ fun GroupItemList() {
 @Preview
 @Composable
 fun GroupItemListPreview() {
-    GroupItemList()
+    // GroupItemList()
 }

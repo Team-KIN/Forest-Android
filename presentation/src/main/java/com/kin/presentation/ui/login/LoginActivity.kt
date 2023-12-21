@@ -7,6 +7,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kin.presentation.ui.base.BaseActivity
+import com.kin.presentation.ui.home.MainActivity
 import com.kin.presentation.ui.login.screen.LoginScreen
 import com.kin.presentation.ui.signup.SignUpActivity
 import com.kin.presentation.viewmodel.LoginViewModel
@@ -23,8 +24,7 @@ class LoginActivity: BaseActivity() {
         lifecycleScope.launch {
             loginViewModel.saveTokenResponse.collect {
                 if (it is Event.Success) {
-                    val deviceTokenSF = getSharedPreferences("deviceToken", MODE_PRIVATE)
-                    deviceTokenSF.edit().putString("device", token).apply()
+                    pageHome()
                     finish()
                 }
             }
@@ -38,7 +38,10 @@ class LoginActivity: BaseActivity() {
                     pageSignUp()
                     finish()
                 },
-                onMainClick = {}
+                onMainClick = {
+                    pageHome()
+                    finish()
+                }
             )
         }
     }
@@ -48,6 +51,15 @@ class LoginActivity: BaseActivity() {
             Intent(
                 this,
                 SignUpActivity::class.java
+            )
+        )
+    }
+
+    private fun pageHome() {
+        startActivity(
+            Intent(
+                this,
+                MainActivity::class.java
             )
         )
     }

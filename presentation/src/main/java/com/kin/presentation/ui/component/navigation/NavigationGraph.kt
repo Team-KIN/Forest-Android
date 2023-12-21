@@ -11,10 +11,10 @@ import com.kin.presentation.ui.group_list.screen.GroupListScreen
 fun NavigationGraph(navController: NavHostController) {
     NavHost(navController = navController, startDestination = BottomNavItem.GroupList.screenRoute) {
         composable(BottomNavItem.GroupList.screenRoute) {
-            GroupListScreen()
+            // GroupListScreen(viewModel = )
         }
         composable(BottomNavItem.MyPage.screenRoute) {
-            ChangePasswordScreen(onClick = {})
+            ChangePasswordScreen()
         }
     }
 }

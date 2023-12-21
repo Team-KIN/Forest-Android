@@ -25,11 +25,14 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.kin.presentation.ui.signup.SignUpActivity"
+            android:exported="false"/>
+        <activity
+            android:name="com.kin.presentation.ui.home.MainActivity"
             android:exported="false"/>
     </application>
 </manifest>

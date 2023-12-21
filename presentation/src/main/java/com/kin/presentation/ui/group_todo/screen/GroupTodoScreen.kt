@@ -26,7 +26,7 @@ import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable
 fun GroupTodoScreen(
-    onClick: () -> Unit
+    onBackPage: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -44,9 +44,7 @@ fun GroupTodoScreen(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                BackPage(
-                    onClick = onClick
-                )
+                BackPage()
                 TodoToggle()
             }
         }
