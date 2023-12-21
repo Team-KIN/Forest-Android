@@ -1,6 +1,8 @@
 package com.kin.forest_android.module
 
+import com.kin.data.repository.GroupListRepositoryImpl
 import com.kin.data.repository.LoginRepositoryImpl
+import com.kin.domain.repository.GroupListRepository
 import com.kin.domain.repository.LoginRepository
 import dagger.Binds
 import dagger.Module
@@ -15,4 +17,9 @@ abstract class RepositoryModule {
     abstract fun provideLoginRepository(
         loginRepositoryImpl: LoginRepositoryImpl
     ): LoginRepository
+
+    @Binds
+    abstract fun provideGroupListRepository(
+        groupListRepositoryImpl: GroupListRepositoryImpl
+    ): GroupListRepository
 }

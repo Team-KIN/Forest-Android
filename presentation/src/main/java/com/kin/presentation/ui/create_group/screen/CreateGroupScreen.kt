@@ -1,7 +1,5 @@
 package com.kin.presentation.ui.create_group.screen
 
-import android.content.Context
-import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,11 +22,7 @@ import com.kin.presentation.ui.create_group.component.NextPageButton
 import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable
-fun CreateGroupScreen(
-    context: Context,
-    onBack: () -> Unit,
-    onCreate: () -> Unit
-) {
+fun CreateGroupScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -57,10 +51,7 @@ fun CreateGroupScreen(
             Spacer(modifier = Modifier.height(16.dp))
             GroupStatus()
             Spacer(modifier = Modifier.height(208.dp))
-            NextPageButton {
-                Toast.makeText(context, "그룹이 생성되었습니다.", Toast.LENGTH_SHORT).show()
-                onCreate()
-            }
+            NextPageButton {}
         }
     }
 }
@@ -68,5 +59,5 @@ fun CreateGroupScreen(
 @Preview
 @Composable
 fun CreateGroupScreenPreview() {
-    // CreateGroupScreen()
+    CreateGroupScreen()
 }

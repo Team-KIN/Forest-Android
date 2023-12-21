@@ -1,7 +1,7 @@
 package com.kin.forest_android.module
 
 import com.kin.data.remote.api.login.LoginAPI
-import com.kin.data.util.Interceptor
+import com.kin.data.util.LoginInterceptor
 import com.kin.data.BuildConfig
 import dagger.Module
 import dagger.Provides
@@ -23,7 +23,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideOkhttpClient(
-        loginInterceptor: Interceptor,
+        loginInterceptor: LoginInterceptor,
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .cookieJar(CookieJar.NO_COOKIES)

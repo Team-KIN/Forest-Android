@@ -38,6 +38,11 @@ class Interceptor @Inject constructor(
                 return chain.proceed(request)
             }
         }
+        groupPath.forEachIndexed { index, s ->
+            if(s == path && groupMethod[index] == method) {
+                return chain.proceed(request)
+            }
+        }
 
         runBlocking {
             val refreshTime = dataSource.getRefreshTime().first().replace("\"", "")

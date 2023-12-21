@@ -25,7 +25,9 @@ import com.kin.presentation.ui.group_todo.component.private_todo.PrivateTodoTitl
 import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable
-fun GroupTodoScreen() {
+fun GroupTodoScreen(
+    onBackPage: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -69,5 +71,5 @@ fun GroupTodoScreen() {
 @Preview
 @Composable
 fun GroupTodoScreenPreview() {
-    GroupTodoScreen()
+    // GroupTodoScreen()
 }
