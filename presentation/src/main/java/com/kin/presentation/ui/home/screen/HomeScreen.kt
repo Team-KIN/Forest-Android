@@ -9,12 +9,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kin.domain.model.main.response.MainModel
-import androidx.compose.ui.Alignment
-import com.kin.presentation.ui.home.component.Bottom
 import com.kin.presentation.ui.home.component.Divider
 import com.kin.presentation.ui.home.component.ExtraList
 import com.kin.presentation.ui.home.component.GroupList
@@ -27,8 +25,6 @@ import com.kin.presentation.viewmodel.util.Event
 @Composable
 fun HomeScreen(
     viewModel: MainViewModel,
-    onGroupClick: () -> Unit,
-    onMyPageClick: () -> Unit,
     onDetailMyGroup: () -> Unit
 ) {
     val data = viewModel.mainData.value
@@ -68,14 +64,6 @@ fun HomeScreen(
             ){
                 ExtraList()
             }
-            Column(
-                modifier = Modifier.padding(top = 61.dp)
-            ) {
-                Bottom(
-                    { onGroupClick() },
-                    { onMyPageClick() }
-                )
-            }
         }
     }
 }
@@ -83,7 +71,6 @@ fun HomeScreen(
 suspend fun getMainPageInfo(
     viewModel: MainViewModel,
     progressState: (Boolean) -> Unit,
-    onSuccess: (mainInfo: MainModel) -> MainModel
 ){
     viewModel.mainResponse.collect{ response ->
         when(response){
