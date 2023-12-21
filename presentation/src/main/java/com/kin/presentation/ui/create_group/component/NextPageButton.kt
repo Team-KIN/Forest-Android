@@ -30,7 +30,7 @@ fun NextPageButton(
         onClick = { onClick() }
     ) {
         Text(
-            text = "나무심기",
+            text = stringResource(R.string.next_text),
             color = LightColor.WHITE,
             fontSize = 18.sp,
         )
