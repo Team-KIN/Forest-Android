@@ -26,7 +26,9 @@ import com.kin.presentation.ui.group_setting.component.GroupSettingTitle
 import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable
-fun GroupSettingScreen(){
+fun GroupSettingScreen(
+    onClick: () -> Unit
+){
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -34,7 +36,9 @@ fun GroupSettingScreen(){
     ){
         Column {
             Spacer(modifier = Modifier.height(4.dp))
-            BackPage()
+            BackPage(
+                onClick = onClick
+            )
             Spacer(modifier = Modifier.height(19.dp))
             Row (
                 modifier = Modifier.padding(start = 20.dp)
@@ -73,5 +77,5 @@ fun GroupSettingScreen(){
 @Preview
 @Composable
 fun GroupSettingScreenPreview(){
-    GroupSettingScreen()
+    // GroupSettingScreen()
 }

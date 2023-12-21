@@ -14,7 +14,7 @@ fun NavigationGraph(navController: NavHostController) {
             GroupListScreen()
         }
         composable(BottomNavItem.MyPage.screenRoute) {
-            ChangePasswordScreen()
+            ChangePasswordScreen(onClick = {})
         }
     }
 }
