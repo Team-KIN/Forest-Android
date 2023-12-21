@@ -34,8 +34,8 @@ class SignupViewModel @Inject constructor(
                 _signupResponse.value = remoteError.errorHandling()
             }.collect { response ->
                 _signupResponse.value = Event.Success(data = response)
-                _signupSuccessResponse.value = true
             }
+            _signupSuccessResponse.value = true
         }.onFailure {
             _signupResponse.value = it.errorHandling()
         }

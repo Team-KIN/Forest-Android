@@ -40,7 +40,7 @@ fun SignupScreen(
     context: Context,
     lifecycleScope: CoroutineScope,
     viewModel: SignupViewModel,
-    onSignupButtonClick: (body: SignupRequestModel) -> Unit,
+    onSignupButtonClick: () -> Unit,
     onBackPageClick: () -> Unit
 ) {
     var isClick by remember { mutableStateOf(false) }
@@ -146,8 +146,8 @@ fun SignupScreen(
                 SignupButton {
                     if (email.isNotEmpty() && pw.isNotEmpty() && name.isNotEmpty() && newPw.isNotEmpty() && phoneNumber.isNotEmpty()) {
                         isError = false
-                        viewModel.signup(body)
                         lifecycleScope.launch {
+                            viewModel.signup(body = body)
                             signup(
                                 viewModel = viewModel,
                                 errorText = { text ->
@@ -155,10 +155,10 @@ fun SignupScreen(
                                 },
                                 progressState = { state ->
                                     progressState.value = state
-                                }
+                                },
+                                onSignupButtonClick =  { onSignupButtonClick }
                             )
                         }
-                        onSignupButtonClick(body)
                         Log.d("success", "회원가입 성공")
                     } else {
                         isError = true
@@ -173,7 +173,8 @@ fun SignupScreen(
 suspend fun signup(
     viewModel: SignupViewModel,
     errorText: (errorText: String) -> Unit,
-    progressState: (progressState: Boolean) -> Unit
+    progressState: (progressState: Boolean) -> Unit,
+    onSignupButtonClick: () -> Unit
 ) {
     viewModel.signupResponse.collect {
         when (it) {
