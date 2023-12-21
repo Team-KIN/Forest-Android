@@ -13,7 +13,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kin.presentation.ui.home.component.Bottom
 import com.kin.presentation.ui.home.component.Divider
 import com.kin.presentation.ui.home.component.ExtraList
 import com.kin.presentation.ui.home.component.GroupList
@@ -23,8 +22,6 @@ import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable
 fun HomeScreen(
-    onGroupClick: () -> Unit,
-    onMyPageClick: () -> Unit,
     onDetailMyGroup: () -> Unit
 ) {
     Box(
@@ -55,14 +52,6 @@ fun HomeScreen(
                 modifier = Modifier.padding(start = 123.dp)
             ){
                 ExtraList()
-            }
-            Column(
-                modifier = Modifier.padding(top = 61.dp)
-            ) {
-                Bottom(
-                    { onGroupClick() },
-                    { onMyPageClick() }
-                )
             }
         }
     }
