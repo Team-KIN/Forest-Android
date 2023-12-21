@@ -34,7 +34,7 @@ fun BackPage() {
                 text = stringResource(R.string.back_page_text),
                 fontSize = 12.sp,
                 modifier = Modifier.padding(0.dp, 3.dp),
-                color = LightColor . BLACK
+                color = LightColor.BLACK
             )
         }
     }

@@ -26,7 +26,6 @@ import com.kin.presentation.ui.theme.color.LightColor
 @Composable
 fun CreateGroupScreen(
     context: Context,
-    onBack: () -> Unit,
     onCreate: () -> Unit
 ) {
     Column(

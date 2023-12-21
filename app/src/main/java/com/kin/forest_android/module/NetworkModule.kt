@@ -1,6 +1,5 @@
 package com.kin.forest_android.module
 
-import android.util.Log
 import com.kin.data.remote.api.login.LoginAPI
 import com.kin.data.util.Interceptor
 import com.kin.data.BuildConfig
