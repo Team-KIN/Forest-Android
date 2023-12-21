@@ -30,4 +30,5 @@ abstract class RemoteDataSourceModule {
     abstract fun provideMainDataSource(
         mainDataSourceImpl: MainDataSourceImpl
     ): MainDataSource
+
 }

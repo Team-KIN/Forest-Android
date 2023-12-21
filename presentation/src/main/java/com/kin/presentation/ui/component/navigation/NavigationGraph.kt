@@ -24,7 +24,7 @@ fun NavigationGraph(
                 )
         }
         composable(BottomNavItem.GroupList.screenRoute) {
-            GroupListScreen()
+            // GroupListScreen(viewModel = )
         }
         composable(BottomNavItem.MyPage.screenRoute) {
             ChangePasswordScreen(onClick = {})

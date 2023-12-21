@@ -29,4 +29,5 @@ abstract class RepositoryModule {
     abstract fun provideMainRepository(
         mainRepositoryImpl: MainRepositoryImpl
     ): MainRepository
+
 }
