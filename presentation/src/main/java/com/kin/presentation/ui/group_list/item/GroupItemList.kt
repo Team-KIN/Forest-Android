@@ -2,6 +2,8 @@ package com.kin.presentation.ui.group_list.item
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -22,10 +25,11 @@ import java.util.UUID
 
 @Composable
 fun GroupItemList(
-    id: UUID,
-    name: String,
-    headcount: Int,
-    todo: Int
+//    id: UUID,
+//    name: String,
+//    headcount: Int,
+//    todo: Int
+    onDetail: () -> Unit
 ) {
     Row(
         horizontalArrangement = Arrangement.Center,
@@ -42,9 +46,15 @@ fun GroupItemList(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = name,
+                text = "모여봐요 공부의 숲",
                 color = LightColor.BLACK,
-                fontSize = 15.sp
+                fontSize = 15.sp,
+                modifier = Modifier.clickable(
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() }
+                ) {
+                    onDetail()
+                }
             )
             Spacer(modifier = Modifier.width(4.dp))
             Image(
@@ -59,7 +69,7 @@ fun GroupItemList(
                     contentDescription = "Member Icon"
                 )
                 Text(
-                    text = "$headcount",
+                    text = "99+",
                     color = LightColor.SECONDARY,
                     fontSize = 12.sp
                 )
@@ -74,7 +84,7 @@ fun GroupItemList(
                 )
                 Spacer(modifier = Modifier.width(2.dp))
                 Text(
-                    text = "$todo",
+                    text = "99+",
                     color = LightColor.SECONDARY,
                     fontSize = 12.sp
                 )

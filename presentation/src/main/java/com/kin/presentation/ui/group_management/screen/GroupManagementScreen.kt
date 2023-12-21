@@ -22,18 +22,14 @@ import com.kin.presentation.ui.group_management.component.GroupMemberList
 import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable
-fun GroupManagementScreen(
-    onClick: () -> Unit
-) {
+fun GroupManagementScreen() {
     Box(modifier = Modifier
         .fillMaxSize()
         .background(LightColor.WHITE)
     ) {
         Column {
             Spacer(modifier = Modifier.height(11.dp))
-            BackPage(
-                onClick = onClick
-            )
+            BackPage()
             Spacer(modifier = Modifier.height(27.dp))
             Row {
                 Spacer(modifier = Modifier.width(20.dp))
@@ -56,5 +52,5 @@ fun GroupManagementScreen(
 @Preview
 @Composable
 fun GroupManagementScreenPreview() {
-    // GroupManagementScreen()
+    GroupManagementScreen()
 }

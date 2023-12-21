@@ -32,10 +32,16 @@
             android:name="com.kin.presentation.ui.signup.SignUpActivity"
             android:exported="false"/>
         <activity
-            android:name="com.kin.presentation.ui.home.HomeActivity"
+            android:name="com.kin.presentation.ui.home.MainActivity"
             android:exported="false"/>
         <activity
             android:name="com.kin.presentation.ui.group_list.GroupListActivity"
+            android:exported="false"/>
+        <activity android:name="com.kin.presentation.ui.deatil_group.DetailActivity"
+            android:exported="false"/>
+        <activity android:name="com.kin.presentation.ui.group_todo.GroupTodoActivity"
+            android:exported="false"/>
+        <activity android:name="com.kin.presentation.ui.create_group.CreateGroupActivity"
             android:exported="false"/>
     </application>
 </manifest>

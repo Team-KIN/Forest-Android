@@ -8,7 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kin.presentation.ui.base.BaseActivity
 import com.kin.presentation.ui.group_list.GroupListActivity
-import com.kin.presentation.ui.home.HomeActivity
+import com.kin.presentation.ui.home.MainActivity
 import com.kin.presentation.ui.login.screen.LoginScreen
 import com.kin.presentation.ui.signup.SignUpActivity
 import com.kin.presentation.viewmodel.LoginViewModel
@@ -60,7 +60,7 @@ class LoginActivity: BaseActivity() {
         startActivity(
             Intent(
                 this,
-                GroupListActivity::class.java
+                MainActivity::class.java
             )
         )
     }

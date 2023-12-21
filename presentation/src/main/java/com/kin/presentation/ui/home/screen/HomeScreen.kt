@@ -9,9 +9,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kin.presentation.ui.home.component.Bottom
 import com.kin.presentation.ui.home.component.Divider
 import com.kin.presentation.ui.home.component.ExtraList
 import com.kin.presentation.ui.home.component.GroupList
@@ -20,7 +22,11 @@ import com.kin.presentation.ui.home.component.Profile
 import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    onGroupClick: () -> Unit,
+    onMyPageClick: () -> Unit,
+    onDetailMyGroup: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -39,13 +45,24 @@ fun HomeScreen() {
                 Spacer(modifier = Modifier.height(28.dp))
                 MyGroupTitle()
                 Spacer(modifier = Modifier.height(20.dp))
-                GroupList()
+                GroupList(
+                    { onDetailMyGroup() }
+                )
                 Spacer(modifier = Modifier.height(20.dp))
             }
             Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.padding(start = 123.dp)
             ){
                 ExtraList()
+            }
+            Column(
+                modifier = Modifier.padding(top = 61.dp)
+            ) {
+                Bottom(
+                    { onGroupClick() },
+                    { onMyPageClick() }
+                )
             }
         }
     }
@@ -54,5 +71,5 @@ fun HomeScreen() {
 @Preview
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen()
+    // HomeScreen()
 }
