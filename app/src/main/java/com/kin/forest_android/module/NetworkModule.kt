@@ -73,4 +73,10 @@ object NetworkModule {
         return retrofit.create(SignupAPI::class.java)
 
     }
+
+    @Provides
+    @Singleton
+    fun groupListService(retrofit: Retrofit): GroupListAPI {
+        return retrofit.create(GroupListAPI::class.java)
+    }
 }
