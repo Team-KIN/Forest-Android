@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kin.domain.model.main.response.MainModel
 import com.kin.presentation.ui.home.component.Divider
 import com.kin.presentation.ui.home.component.ExtraList
 import com.kin.presentation.ui.home.component.GroupList
@@ -42,7 +43,7 @@ fun HomeScreen(
                         name = data.name,
                         email = data.email
                     )
-                }
+                })
             }
             Column(
                 modifier = Modifier.padding(start = 16.dp, top = 17.dp)
@@ -80,7 +81,6 @@ suspend fun getMainPageInfo(
 
             is Event.Success -> {
                 progressState(false)
-                onSuccess(response.data!!)
             }
 
             else -> {

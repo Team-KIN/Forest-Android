@@ -73,3 +73,15 @@ fun MainPageView(
 fun MainPagePreview() {
     // MainPageView()
 }
+
+//@Composable
+//fun MainPageView() {
+//    val navController = rememberNavController()
+//    Scaffold (
+//        bottomBar = { BottomNavigationBar(navController = navController)}
+//    ){
+//        Box(modifier = Modifier.padding(it)){
+//            NavigationGraph(navController = navController)
+//        }
+//    }
+//}

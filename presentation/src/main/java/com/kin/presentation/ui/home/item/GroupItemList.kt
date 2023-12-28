@@ -27,7 +27,7 @@ import com.kin.presentation.R
 fun GroupItemList(
     data: MainModel.Groups,
     onDetailMyGroup: () -> Unit
-){
+) {
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
@@ -62,7 +62,8 @@ fun GroupItemList(
         Spacer(modifier = Modifier.width(8.dp))
         Row() {
             Row() {
-                Image(painter = painterResource(id = R.drawable.member_icon),
+                Image(
+                    painter = painterResource(id = R.drawable.member_icon),
                     contentDescription = "Member Icon"
                 )
                 Text(
@@ -76,7 +77,8 @@ fun GroupItemList(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Image(painter = painterResource(id = R.drawable.todo_icon),
+                Image(
+                    painter = painterResource(id = R.drawable.todo_icon),
                     contentDescription = "Member Icon"
                 )
                 Spacer(modifier = Modifier.width(2.dp))
@@ -92,6 +94,6 @@ fun GroupItemList(
 
 @Preview
 @Composable
-fun GroupItemListPreview(){
+fun GroupItemListPreview() {
     // GroupItemList()
 }
