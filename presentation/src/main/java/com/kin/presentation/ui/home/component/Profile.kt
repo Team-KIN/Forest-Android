@@ -21,7 +21,10 @@ import com.kin.presentation.ui.theme.color.LightColor
 import com.kin.presentation.R
 
 @Composable
-fun Profile() {
+fun Profile(
+    email: String,
+    name: String
+) {
     Box(modifier = Modifier
         .width(174.dp)
         .height(40.dp)
@@ -34,21 +37,21 @@ fun Profile() {
             )
         ){
             Image(
-                painter = painterResource(R.drawable.profile_image),
+                painter = painterResource(id = R.drawable.profile_image),
                 contentDescription = "profile image",
                 modifier = Modifier.clip(CircleShape)
             )
         }
 
         Text(
-            text = "홍길동",
+            text = name,
             fontSize = 16.sp,
             color = LightColor.BLACK,
             fontWeight = FontWeight(700),
             modifier = Modifier.padding(start = 52.dp)
         )
         Text(
-            text = "s24000@gsm.hs.kr",
+            text = email,
             fontSize = 14.sp,
             color = LightColor.GRAY2,
             fontWeight = FontWeight(400),
@@ -63,5 +66,5 @@ fun Profile() {
 @Preview
 @Composable
 fun ProfilePreview() {
-    Profile()
+    Profile(email = "s22040@gsm.hs.kr", name = "너이놈")
 }

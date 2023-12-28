@@ -16,11 +16,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.kin.domain.model.main.response.MainModel
 import com.kin.presentation.ui.theme.color.LightColor
 import com.kin.presentation.R
 
 @Composable
-fun GroupItemList(){
+fun GroupItemList(
+    data: MainModel.Groups
+){
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
@@ -36,7 +39,7 @@ fun GroupItemList(){
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "모여봐요 공부의 숲",
+                text = data.name,
                 color = LightColor.BLACK,
                 fontSize = 15.sp
             )
@@ -53,7 +56,7 @@ fun GroupItemList(){
                     contentDescription = "Member Icon"
                 )
                 Text(
-                    text = "99+",
+                    text = data.headCount.toString(),
                     color = LightColor.SECONDARY,
                     fontSize = 12.sp
                 )
@@ -68,7 +71,7 @@ fun GroupItemList(){
                 )
                 Spacer(modifier = Modifier.width(2.dp))
                 Text(
-                    text = "99+",
+                    text = data.todo.toString(),
                     color = LightColor.SECONDARY,
                     fontSize = 12.sp
                 )
@@ -80,5 +83,5 @@ fun GroupItemList(){
 @Preview
 @Composable
 fun GroupItemListPreview(){
-    GroupItemList()
+    // GroupItemList()
 }

@@ -11,7 +11,7 @@ data class MainModel(
     @SerializedName("profile_url")
     val profileUrl: String,
     @SerializedName("groups")
-    val groups: Groups
+    val groups: List<Groups>
 ) {
     data class Groups(
         @SerializedName("id")

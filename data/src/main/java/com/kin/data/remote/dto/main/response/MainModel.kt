@@ -13,7 +13,7 @@ data class MainModel(
     @SerializedName("profile_url")
     val profileUrl: String,
     @SerializedName("groups")
-    val groups: Groups
+    val groups: List<Groups>
 ) {
     data class Groups(
         @SerializedName("id")
@@ -38,10 +38,5 @@ fun MainModel.toEntity() = DomainMainModel(
     name = name,
     email = email,
     profileUrl = profileUrl,
-    groups = DomainGroups(
-        id = groups.id,
-        name = groups.name,
-        headCount = groups.headCount,
-        todo = groups.todo
-    )
+    groups = groups.map { it.toEntity() }
 )
