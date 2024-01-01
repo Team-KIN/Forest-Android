@@ -1,8 +1,10 @@
 package com.kin.forest_android.module
 
+import com.kin.data.repository.CreateGroupRepositoryImpl
 import com.kin.data.repository.GroupListRepositoryImpl
 import com.kin.data.repository.LoginRepositoryImpl
 import com.kin.data.repository.SignupRepositoryImpl
+import com.kin.domain.repository.CreateGroupRepository
 import com.kin.domain.repository.GroupListRepository
 import com.kin.domain.repository.LoginRepository
 import com.kin.domain.repository.SignupRepository
@@ -29,4 +31,9 @@ abstract class RepositoryModule {
     abstract fun provideGroupListRepository(
         groupListRepositoryImpl: GroupListRepositoryImpl
     ): GroupListRepository
+
+    @Binds
+    abstract fun provideCreateGroupRepository(
+        createGroupListRepositoryImpl: CreateGroupRepositoryImpl
+    ): CreateGroupRepository
 }

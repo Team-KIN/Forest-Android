@@ -3,6 +3,7 @@ package com.kin.forest_android.module
 import com.kin.data.remote.api.login.LoginAPI
 import com.kin.data.util.Interceptor
 import com.kin.data.BuildConfig
+import com.kin.data.remote.api.create_group.CreateGroupAPI
 import com.kin.data.remote.api.group_list.GroupListAPI
 import com.kin.data.remote.api.signup.SignupAPI
 import dagger.Module
@@ -71,5 +72,11 @@ object NetworkModule {
     @Singleton
     fun groupListService(retrofit: Retrofit): GroupListAPI {
         return retrofit.create(GroupListAPI::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun createGroupService(retrofit: Retrofit): CreateGroupAPI {
+        return retrofit.create(CreateGroupAPI::class.java)
     }
 }
