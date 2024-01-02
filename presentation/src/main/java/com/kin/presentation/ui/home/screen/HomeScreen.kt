@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,7 +29,7 @@ fun HomeScreen(
     viewModel: MainViewModel,
     onDetailMyGroup: () -> Unit
 ) {
-    val data = viewModel.mainPageResponse
+    val data = viewModel.mainResponse.collectAsState()
     println("test ${data.value}")
     Box(
         modifier = Modifier
@@ -39,7 +40,7 @@ fun HomeScreen(
             Row (
                 modifier = Modifier.padding(top = 40.dp, start = 16.dp)
             ){
-                data.value?.let {
+                data.value.data?.let {
                     Profile(
                         name = it.name,
                         email = it.email
@@ -53,7 +54,7 @@ fun HomeScreen(
                 Spacer(modifier = Modifier.height(28.dp))
                 MyGroupTitle()
                 Spacer(modifier = Modifier.height(20.dp))
-                data.value?.let {
+                data.value.data?.let {
                     GroupList(
                         data = it,
                         onDetailMyGroup = { onDetailMyGroup() }

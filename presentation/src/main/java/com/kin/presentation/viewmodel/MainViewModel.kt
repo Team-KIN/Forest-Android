@@ -22,9 +22,6 @@ class MainViewModel @Inject constructor(
     private val _mainResponse = MutableStateFlow<Event<MainModel>>(Event.Loading)
     val mainResponse = _mainResponse.asStateFlow()
 
-    private val _mainPageResponse = MutableLiveData<MainModel>()
-    val mainPageResponse: LiveData<MainModel> get() = _mainPageResponse
-
     init {
         viewModelScope.launch {
             mainUseCase().onSuccess {
@@ -32,7 +29,6 @@ class MainViewModel @Inject constructor(
                     _mainResponse.value = remoteError.errorHandling()
                 }.collect { response ->
                     _mainResponse.value = Event.Success(data = response)
-                    _mainPageResponse.value = response
                 }
             }.onFailure {
                 _mainResponse.value = it.errorHandling()
