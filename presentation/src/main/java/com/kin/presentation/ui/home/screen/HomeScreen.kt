@@ -30,7 +30,6 @@ fun HomeScreen(
     onDetailMyGroup: () -> Unit
 ) {
     val data = viewModel.mainResponse.collectAsState()
-    println("test ${data.value}")
     Box(
         modifier = Modifier
             .fillMaxSize()

@@ -35,8 +35,6 @@ fun GroupListScreen(
     onDetail: () -> Unit,
     onCreateGroup: () -> Unit
 ) {
-
-
     val progressState = remember { mutableStateOf(false) }
     
 //    LaunchedEffect("GetGroupList") {

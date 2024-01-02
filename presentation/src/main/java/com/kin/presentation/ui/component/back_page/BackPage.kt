@@ -43,5 +43,5 @@ fun BackPage() {
 @Preview
 @Composable
 fun BackPagePreview() {
-    // BackPage()
+    BackPage()
 }

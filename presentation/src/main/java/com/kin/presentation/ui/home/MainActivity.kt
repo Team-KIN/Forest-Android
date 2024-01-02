@@ -29,12 +29,6 @@ class MainActivity : BaseActivity() {
     }
 }
 
-@Preview
-@Composable
-fun MainPagePreview() {
-    // MainPageView()
-}
-
 //@Composable
 //fun MainPageView() {
 //    val navController = rememberNavController()

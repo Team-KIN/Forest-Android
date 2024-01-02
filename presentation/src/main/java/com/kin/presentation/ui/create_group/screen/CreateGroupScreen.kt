@@ -24,10 +24,7 @@ import com.kin.presentation.ui.create_group.component.NextPageButton
 import com.kin.presentation.ui.theme.color.LightColor
 
 @Composable
-fun CreateGroupScreen(
-    context: Context,
-    onCreate: () -> Unit
-) {
+fun CreateGroupScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -67,5 +64,5 @@ fun CreateGroupScreen(
 @Preview
 @Composable
 fun CreateGroupScreenPreview() {
-    // CreateGroupScreen()
+    CreateGroupScreen()
 }

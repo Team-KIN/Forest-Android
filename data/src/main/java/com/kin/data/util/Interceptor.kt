@@ -38,6 +38,11 @@ class Interceptor @Inject constructor(
                 return chain.proceed(request)
             }
         }
+        groupPath.forEachIndexed { index, s ->
+            if(s == path && groupMethod[index] == method) {
+                return chain.proceed(request)
+            }
+        }
 
         runBlocking {
             val refreshTime = dataSource.getRefreshTime().first().replace("\"", "")
@@ -74,6 +79,7 @@ class Interceptor @Inject constructor(
                     dataSource.setRefreshTime(token["refreshExp"].toString())
                 } else throw TokenExpirationException()
             }
+
             val accessToken = dataSource.getAccessToken().first().replace("\"", "")
             builder.addHeader("Authorization", "Bearer $accessToken")
         }

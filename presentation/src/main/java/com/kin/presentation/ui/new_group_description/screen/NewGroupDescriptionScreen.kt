@@ -19,9 +19,12 @@ import com.kin.presentation.ui.new_group_description.component.DescriptionTextFi
 import com.kin.presentation.ui.new_group_description.component.GroupDescriptionTitle
 import com.kin.presentation.ui.new_group_description.component.LatterNum
 import com.kin.presentation.ui.theme.color.LightColor
+import com.kin.presentation.viewmodel.CreateGroupViewModel
 
 @Composable
-fun NewGroupDescriptionScreen() {
+fun NewGroupDescriptionScreen(
+    viewModel: CreateGroupViewModel
+) {
     Column(modifier= Modifier
         .fillMaxSize()
         .background(LightColor.WHITE)
@@ -45,7 +48,7 @@ fun NewGroupDescriptionScreen() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier = Modifier.height(4.dp))
-            CreateGroupButton {}
+            CreateGroupButton { viewModel }
         }
     }
 }
