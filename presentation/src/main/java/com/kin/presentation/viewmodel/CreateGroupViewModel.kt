@@ -7,12 +7,14 @@ import com.kin.domain.model.create_group.response.CreateGroupResponseModel
 import com.kin.domain.usecase.create_group.CreateGroupUseCase
 import com.kin.presentation.viewmodel.util.Event
 import com.kin.presentation.viewmodel.util.errorHandling
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class CreateGroupViewModel @Inject constructor(
     private val createGroupUseCase: CreateGroupUseCase
 ): ViewModel() {
