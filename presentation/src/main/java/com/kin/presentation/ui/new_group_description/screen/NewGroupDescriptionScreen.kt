@@ -56,5 +56,5 @@ fun NewGroupDescriptionScreen(
 @Preview
 @Composable
 fun NewGroupDescriptionScreenPreview() {
-    NewGroupDescriptionScreen()
+    //NewGroupDescriptionScreen()
 }
