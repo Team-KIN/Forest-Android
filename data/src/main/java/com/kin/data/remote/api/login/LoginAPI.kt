@@ -8,11 +8,11 @@ import retrofit2.http.DELETE
 import retrofit2.http.POST
 
 interface LoginAPI {
-    @POST("auth/signin")
+    @POST("/auth/signin")
     suspend fun login(
         @Body body: LoginRequest
     ): LoginResponse
 
-    @DELETE("auth/logout")
+    @DELETE("/auth/logout")
     suspend fun logout(): Response<Unit>
 }

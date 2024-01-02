@@ -22,48 +22,9 @@ class MainActivity : BaseActivity() {
     override fun init() {
         setContent {
             HomeScreen(
-                onDetailMyGroup = {
-
-                }
+                viewModel = mainViewModel,
+                onDetailMyGroup = {}
             )
-        }
-    }
-}
-//    private fun pageGroup() {
-//        startActivity(
-//            Intent(
-//                this,
-//                GroupListActivity::class.java
-//            )
-//        )
-//    }
-
-//    private fun pageDetailMyGroup() {
-//        startActivity(
-//            Intent(
-//                this,
-//                GroupTodoActivity::class.java
-//            )
-//        )
-//    }
-
-
-@Composable
-fun MainPageView(
-    viewModel: MainViewModel
-) {
-    val navController = rememberNavController()
-    Scaffold (
-        bottomBar = { BottomNavigationBar(navController = navController)}
-    ){
-        Box(modifier = Modifier.padding(it)){
-            viewModel.mainData.value?.let { it1 ->
-                NavigationGraph(
-                    navController = navController,
-                    viewModel = viewModel,
-                    mainData = it1
-                )
-            }
         }
     }
 }

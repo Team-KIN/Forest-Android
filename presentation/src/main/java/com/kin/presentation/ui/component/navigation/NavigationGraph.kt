@@ -19,8 +19,8 @@ fun NavigationGraph(
     NavHost(navController = navController, startDestination = BottomNavItem.GroupList.screenRoute) {
         composable(BottomNavItem.MyGroup.screenRoute){
             HomeScreen(
-                data = mainData,
-                viewModel = viewModel
+                viewModel = viewModel,
+                onDetailMyGroup = {}
                 )
         }
         composable(BottomNavItem.GroupList.screenRoute) {

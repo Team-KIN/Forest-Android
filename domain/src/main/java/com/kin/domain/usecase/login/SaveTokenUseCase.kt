@@ -7,7 +7,7 @@ import javax.inject.Inject
 class SaveTokenUseCase @Inject constructor(
     private val loginRepository: LoginRepository
 ) {
-    suspend operator fun invoke(token: LoginResponseModel) = kotlin.runCatching {
+    suspend operator fun invoke(token: LoginResponseModel) = runCatching {
         loginRepository.saveToken(token = token)
     }
 }

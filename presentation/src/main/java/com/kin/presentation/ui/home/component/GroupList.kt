@@ -17,7 +17,7 @@ import com.kin.presentation.ui.home.item.GroupItemList
 
 @Composable
 fun GroupList(
-    data: List<MainModel.Groups>,
+    data: MainModel,
     onDetailMyGroup: () -> Unit
 ) {
     Box(
@@ -30,9 +30,9 @@ fun GroupList(
                 onDetailMyGroup()
             }
         ) {
-            items(8){
+            items(data.groups){
                 GroupItemList(
-                    data = data,
+                    data = it,
                     onDetailMyGroup = { onDetailMyGroup() }
                 )
                 Spacer(modifier = Modifier.height(20.dp))

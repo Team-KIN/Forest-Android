@@ -7,15 +7,10 @@ import java.util.Date
 
 @SuppressLint("SimpleDateFormat")
 fun String.toDate(): Date {
-    kotlin.runCatching {
-        SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(this)!!
-    }.onSuccess {
-        return it
-    }
-    throw TokenExpirationException()
+    return SimpleDateFormat("yyyy-MM-dd'T'HH-mm-ss").parse(this) ?: throw TokenExpirationException()
 }
 
 @SuppressLint("SimpleDateFormat")
 fun Long.toForestTimeDate(): Date {
-    return SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(this).toDate()
+    return SimpleDateFormat("yyyy-MM-dd'T'HH-mm-ss").format(this).toDate()
 }

@@ -67,7 +67,7 @@ fun GroupItemList(
                     contentDescription = "Member Icon"
                 )
                 Text(
-                    text = data.headCount.toString(),
+                    text = "+" + data.headCount.toString(),
                     color = LightColor.SECONDARY,
                     fontSize = 12.sp
                 )
@@ -83,7 +83,7 @@ fun GroupItemList(
                 )
                 Spacer(modifier = Modifier.width(2.dp))
                 Text(
-                    text = data.todo.toString(),
+                    text = "+" + data.todo.toString(),
                     color = LightColor.SECONDARY,
                     fontSize = 12.sp
                 )

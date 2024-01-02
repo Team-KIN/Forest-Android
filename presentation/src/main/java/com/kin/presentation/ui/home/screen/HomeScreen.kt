@@ -28,7 +28,8 @@ fun HomeScreen(
     viewModel: MainViewModel,
     onDetailMyGroup: () -> Unit
 ) {
-    val data = viewModel.mainData.value
+    val data = viewModel.mainPageResponse
+    println("test ${data.value}")
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -38,12 +39,12 @@ fun HomeScreen(
             Row (
                 modifier = Modifier.padding(top = 40.dp, start = 16.dp)
             ){
-                if (data != null) {
+                data.value?.let {
                     Profile(
-                        name = data.name,
-                        email = data.email
+                        name = it.name,
+                        email = it.email
                     )
-                })
+                }
             }
             Column(
                 modifier = Modifier.padding(start = 16.dp, top = 17.dp)
@@ -52,10 +53,11 @@ fun HomeScreen(
                 Spacer(modifier = Modifier.height(28.dp))
                 MyGroupTitle()
                 Spacer(modifier = Modifier.height(20.dp))
-                if (data != null) {
+                data.value?.let {
                     GroupList(
-                        data = data.groups
-                    ) { onDetailMyGroup() }
+                        data = it,
+                        onDetailMyGroup = { onDetailMyGroup() }
+                    )
                 }
                 Spacer(modifier = Modifier.height(20.dp))
             }
