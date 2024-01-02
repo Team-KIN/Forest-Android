@@ -7,6 +7,7 @@ import com.kin.data.remote.api.group_list.GroupListAPI
 import com.kin.data.remote.api.main.MainAPI
 import com.kin.data.remote.api.create_group.CreateGroupAPI
 import com.kin.data.remote.api.signup.SignupAPI
+import com.kin.data.remote.api.todo.TodoAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -86,5 +87,11 @@ object NetworkModule {
     @Singleton
     fun createGroupService(retrofit: Retrofit): CreateGroupAPI {
         return retrofit.create(CreateGroupAPI::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun groupTodoService(retrofit: Retrofit): TodoAPI {
+        return retrofit.create(TodoAPI::class.java)
     }
 }

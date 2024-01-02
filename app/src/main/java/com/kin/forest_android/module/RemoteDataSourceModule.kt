@@ -10,6 +10,8 @@ import com.kin.data.remote.datasource.main.MainDataSource
 import com.kin.data.remote.datasource.main.MainDataSourceImpl
 import com.kin.data.remote.datasource.signup.SignupDataSource
 import com.kin.data.remote.datasource.signup.SignupDataSourceImpl
+import com.kin.data.remote.datasource.todo.TodoDataSource
+import com.kin.data.remote.datasource.todo.TodoDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -44,4 +46,9 @@ abstract class RemoteDataSourceModule {
     abstract fun provideCreateGroupDataSource(
         createGroupDataSourceImpl: CreateGroupDataSourceImpl
     ): CreateGroupDataSource
+
+    @Binds
+    abstract fun provideTodoDataSource(
+        todoDataSourceImpl: TodoDataSourceImpl
+    ): TodoDataSource
 }
