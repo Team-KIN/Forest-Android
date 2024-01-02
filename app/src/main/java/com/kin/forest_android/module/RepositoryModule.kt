@@ -32,12 +32,8 @@ abstract class RepositoryModule {
         mainRepositoryImpl: MainRepositoryImpl
     ): MainRepository
 
+    @Binds
     abstract fun provideGroupListRepository(
         groupListRepositoryImpl: GroupListRepositoryImpl
     ): GroupListRepository
-
-    @Binds
-    abstract fun provideMainRepository(
-        mainRepositoryImpl: MainRepositoryImpl
-    ): MainRepository
 }

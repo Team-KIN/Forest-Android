@@ -77,12 +77,6 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun groupListService(retrofit: Retrofit): GroupListAPI {
-        return retrofit.create(GroupListAPI::class.java)
-    }
-
-    @Provides
-    @Singleton
     fun mainService(retrofit: Retrofit): MainAPI {
         return  retrofit.create(MainAPI::class.java)
     }

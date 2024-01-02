@@ -32,12 +32,9 @@ abstract class RemoteDataSourceModule {
         mainDataSourceImpl: MainDataSourceImpl
     ): MainDataSource
 
+    @Binds
     abstract fun provideGroupListDataSource(
         groupListDataSourceImpl: GroupListDataSourceImpl
     ): GroupListDataSource
 
-    @Binds
-    abstract fun provideMainDataSource(
-        mainDataSourceImpl: MainDataSourceImpl
-    ): MainDataSource
 }
