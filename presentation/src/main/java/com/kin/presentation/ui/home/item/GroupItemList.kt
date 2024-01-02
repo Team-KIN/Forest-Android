@@ -19,13 +19,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.kin.domain.model.main.response.MainModel
 import com.kin.presentation.ui.theme.color.LightColor
 import com.kin.presentation.R
 
 @Composable
 fun GroupItemList(
+    data: MainModel.Groups,
     onDetailMyGroup: () -> Unit
-){
+) {
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
@@ -41,7 +43,7 @@ fun GroupItemList(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "모여봐요 공부의 숲",
+                text = data.name,
                 color = LightColor.BLACK,
                 fontSize = 15.sp,
                 modifier = Modifier.clickable(
@@ -60,11 +62,12 @@ fun GroupItemList(
         Spacer(modifier = Modifier.width(8.dp))
         Row() {
             Row() {
-                Image(painter = painterResource(id = R.drawable.member_icon),
+                Image(
+                    painter = painterResource(id = R.drawable.member_icon),
                     contentDescription = "Member Icon"
                 )
                 Text(
-                    text = "99+",
+                    text = "+" + data.headCount.toString(),
                     color = LightColor.SECONDARY,
                     fontSize = 12.sp
                 )
@@ -74,12 +77,13 @@ fun GroupItemList(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Image(painter = painterResource(id = R.drawable.todo_icon),
+                Image(
+                    painter = painterResource(id = R.drawable.todo_icon),
                     contentDescription = "Member Icon"
                 )
                 Spacer(modifier = Modifier.width(2.dp))
                 Text(
-                    text = "99+",
+                    text = "+" + data.todo.toString(),
                     color = LightColor.SECONDARY,
                     fontSize = 12.sp
                 )
@@ -90,6 +94,6 @@ fun GroupItemList(
 
 @Preview
 @Composable
-fun GroupItemListPreview(){
+fun GroupItemListPreview() {
     // GroupItemList()
 }

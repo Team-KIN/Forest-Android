@@ -140,6 +140,7 @@ suspend fun login(
             is Event.Success -> {
                 viewModel.saveToken(token = it.data!!)
                 viewModel.getAccessToken()
+                onMainClick()
                 progressState(false)
             }
 

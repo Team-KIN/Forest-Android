@@ -6,6 +6,8 @@ import com.kin.data.remote.datasource.group_list.GroupListDataSource
 import com.kin.data.remote.datasource.group_list.GroupListDataSourceImpl
 import com.kin.data.remote.datasource.login.LoginDataSource
 import com.kin.data.remote.datasource.login.LoginDateSourceImpl
+import com.kin.data.remote.datasource.main.MainDataSource
+import com.kin.data.remote.datasource.main.MainDataSourceImpl
 import com.kin.data.remote.datasource.signup.SignupDataSource
 import com.kin.data.remote.datasource.signup.SignupDataSourceImpl
 import com.kin.data.remote.datasource.todo.TodoDataSource
@@ -30,9 +32,15 @@ abstract class RemoteDataSourceModule {
     ): SignupDataSource
 
     @Binds
+    abstract fun provideMainDataSource(
+        mainDataSourceImpl: MainDataSourceImpl
+    ): MainDataSource
+
+    @Binds
     abstract fun provideGroupListDataSource(
         groupListDataSourceImpl: GroupListDataSourceImpl
     ): GroupListDataSource
+
 
     @Binds
     abstract fun provideCreateGroupDataSource(

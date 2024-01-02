@@ -3,8 +3,9 @@ package com.kin.forest_android.module
 import com.kin.data.remote.api.login.LoginAPI
 import com.kin.data.util.Interceptor
 import com.kin.data.BuildConfig
-import com.kin.data.remote.api.create_group.CreateGroupAPI
 import com.kin.data.remote.api.group_list.GroupListAPI
+import com.kin.data.remote.api.main.MainAPI
+import com.kin.data.remote.api.create_group.CreateGroupAPI
 import com.kin.data.remote.api.signup.SignupAPI
 import com.kin.data.remote.api.todo.TodoAPI
 import dagger.Module
@@ -15,9 +16,7 @@ import okhttp3.CookieJar
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import java.util.concurrent.TimeUnit
-import javax.annotation.Signed
 import javax.inject.Singleton
 
 @Module
@@ -65,16 +64,25 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun signupService(retrofit: Retrofit): SignupAPI {
-        return retrofit.create(SignupAPI::class.java)
-    }
-
-    @Provides
-    @Singleton
     fun groupListService(retrofit: Retrofit): GroupListAPI {
         return retrofit.create(GroupListAPI::class.java)
     }
 
+
+    @Provides
+    @Singleton
+    fun signupService(retrofit: Retrofit): SignupAPI {
+        return retrofit.create(SignupAPI::class.java)
+
+    }
+
+    @Provides
+    @Singleton
+    fun mainService(retrofit: Retrofit): MainAPI {
+        return  retrofit.create(MainAPI::class.java)
+    }
+
+  
     @Provides
     @Singleton
     fun createGroupService(retrofit: Retrofit): CreateGroupAPI {

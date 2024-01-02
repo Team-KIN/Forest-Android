@@ -43,11 +43,14 @@ class LoginViewModel @Inject constructor(
             body = body
         ).onSuccess {
             it.catch {remoteError ->
+                println("test 에러, ${remoteError}")
                 _loginResponse.value = remoteError.errorHandling()
             }.collect { response ->
+                println("test 성공")
                 _loginResponse.value = Event.Success(data = response)
             }
         }.onFailure {
+            println("test 통신 실패")
             _loginResponse.value  = it.errorHandling()
         }
     }
