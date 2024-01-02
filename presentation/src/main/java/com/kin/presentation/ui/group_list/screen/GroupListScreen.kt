@@ -29,7 +29,7 @@ import com.kin.presentation.viewmodel.util.Event
 
 @Composable
 fun GroupListScreen(
-    // viewModel: GroupListViewModel,
+    viewModel: GroupListViewModel,
     onMyGroupClick: () -> Unit,
     onMyPageClick: () -> Unit,
     onDetail: () -> Unit,
