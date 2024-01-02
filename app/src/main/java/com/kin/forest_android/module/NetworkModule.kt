@@ -6,7 +6,6 @@ import com.kin.data.BuildConfig
 import com.kin.data.remote.api.group_list.GroupListAPI
 import com.kin.data.remote.api.main.MainAPI
 import com.kin.data.remote.api.create_group.CreateGroupAPI
-import com.kin.data.remote.api.group_list.GroupListAPI
 import com.kin.data.remote.api.signup.SignupAPI
 import dagger.Module
 import dagger.Provides
@@ -33,7 +32,7 @@ object NetworkModule {
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
-            .addInterceptor(interceptor)
+            .addInterceptor(loginInterceptor)
             .build()
     }
 
