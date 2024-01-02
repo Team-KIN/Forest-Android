@@ -53,10 +53,7 @@ fun CreateGroupScreen() {
             Spacer(modifier = Modifier.height(16.dp))
             GroupStatus()
             Spacer(modifier = Modifier.height(208.dp))
-            NextPageButton {
-                Toast.makeText(context, "그룹이 생성되었습니다.", Toast.LENGTH_SHORT).show()
-                onCreate()
-            }
+            NextPageButton {}
         }
     }
 }
